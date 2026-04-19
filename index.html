@@ -241,7 +241,7 @@
         <div class="header">
             <h1>🔧 FLIPPER-DIY - Esquemático Completo</h1>
             <p>Dispositivo de Auditoría de Seguridad Inalámbrica basado en ESP32</p>
-            <p>Proyecto final de la materia de Programación II</p>
+            <p style="font-size: 0.9em; margin-top: 10px; color: #ffd700;"> Proyecto final: Programación II Ciberseguridad.</p>
         </div>
         
         <div class="controls">
@@ -258,9 +258,9 @@
             </div>
             
             <div class="control-group">
-                <button onclick="downloadSchematic()"> Descargar SVG</button>
-                <button onclick="printSchematic()"> Imprimir</button>
-                <button onclick="resetLayout()"> Restaurar Posiciones</button>
+                <button onclick="downloadSchematic()">📥 Descargar SVG</button>
+                <button onclick="printSchematic()">🖨️ Imprimir</button>
+                <button onclick="resetLayout()">🔄 Restaurar Posiciones</button>
             </div>
         </div>
         
@@ -286,7 +286,7 @@
                         <path d="M 530 180 L 480 180 L 480 80 L 220 80 L 220 120" class="wire w-3v3" data-signal="3.3V"/>
                         <path d="M 530 180 L 480 180 L 480 400 L 220 400 L 220 430" class="wire w-3v3" data-signal="3.3V"/>
                         <path d="M 530 180 L 480 180 L 480 620 L 220 620 L 220 650" class="wire w-3v3" data-signal="3.3V"/>
-                        <path d="M 530 180 L 480 180 L 480 30 L 980 30 L 980 120" class="wire w-3v3" data-signal="3.3V"/>
+                        <path d="M 530 180 L 480 180 L 480 30 L 995 30 L 995 120" class="wire w-3v3" data-signal="3.3V"/> <!-- 3.3V Joystick Ajustado -->
                         <path d="M 530 180 L 480 180 L 480 30 L 900 30 L 900 260" class="wire w-3v3" data-signal="3.3V"/>
                         <path d="M 530 180 L 480 180 L 480 30 L 1020 30 L 1020 480 L 1000 480" class="wire w-3v3" data-signal="3.3V"/>
 
@@ -300,7 +300,7 @@
                         
                         <!-- Cables de Tierra lado derecho (Inician en X=810) -->
                         <path d="M 810 220 L 850 220 L 850 660 L 900 660" class="wire w-gnd" data-signal="GND"/>
-                        <path d="M 810 220 L 850 220 L 850 140 L 1010 140 L 1010 120" class="wire w-gnd" data-signal="GND"/>
+                        <path d="M 810 220 L 850 220 L 850 140 L 1025 140 L 1025 120" class="wire w-gnd" data-signal="GND"/> <!-- GND Joystick Ajustado -->
                         <path d="M 810 220 L 850 220 L 850 360 L 900 360" class="wire w-gnd" data-signal="GND"/>
                         <path d="M 810 220 L 850 220 L 850 500 L 950 500 L 950 520" class="wire w-gnd" data-signal="GND"/>
                         <path d="M 810 220 L 830 220 L 830 500 L 960 500 L 960 480" class="wire w-gnd" data-signal="GND"/>
@@ -326,12 +326,12 @@
 
                         <!-- Joystick & IR & Switch (Morado) -->
                         <!-- Todos inician en la coordenada X=810 precisa -->
-                        <path d="M 810 260 L 870 260 L 870 140 L 950 140 L 950 120" class="wire w-ctrl" data-signal="JOY_Y"/>
-                        <path d="M 810 300 L 880 300 L 880 150 L 920 150 L 920 120" class="wire w-ctrl" data-signal="JOY_SW"/>
+                        <path d="M 810 260 L 870 260 L 870 140 L 935 140 L 935 120" class="wire w-ctrl" data-signal="JOY_Y"/> <!-- JOY_Y Ajustado -->
+                        <path d="M 810 300 L 880 300 L 880 150 L 905 150 L 905 120" class="wire w-ctrl" data-signal="JOY_SW"/> <!-- JOY_SW Ajustado -->
                         <path d="M 810 340 L 890 340 L 890 320 L 900 320" class="wire w-ctrl" data-signal="IR_TX"/>
                         <path d="M 810 380 L 890 380 L 890 490 L 980 490 L 980 520" class="wire w-ctrl" data-signal="SWITCH"/>
-                        <!-- Cable del RS003 -->
                         <path d="M 810 460 L 920 460 L 920 480" class="wire w-ctrl" data-signal="IR_RX"/>
+                        <path d="M 810 500 L 825 500 L 825 160 L 965 160 L 965 120" class="wire w-ctrl" data-signal="JOY_X"/> <!-- NUEVO: JOY_X conectado al IO 34 -->
                     </g>
 
                     <!-- ================= COMPONENTES ================= -->
@@ -360,6 +360,8 @@
                         <circle cx="280" cy="230" r="4" class="pin"/> <text x="265" y="234" class="pin-label" text-anchor="end">IO 14 (SLEEP)</text>
                         <circle cx="280" cy="270" r="4" class="pin"/> <text x="265" y="274" class="pin-label" text-anchor="end" fill="#e84393">IO 15 (SD CS)</text>
                         <circle cx="280" cy="310" r="4" class="pin"/> <text x="265" y="314" class="pin-label" text-anchor="end">IO 13 (IR RX)</text>
+                        <!-- NUEVO PIN PARA EL EJE X -->
+                        <circle cx="280" cy="350" r="4" class="pin"/> <text x="265" y="354" class="pin-label" text-anchor="end">IO 34 (JOY X)</text>
                     </g>
 
                     <!-- Pantalla OLED 0.96" -->
@@ -403,23 +405,25 @@
                         <circle cx="250" cy="0" r="4" class="pin"/> <text x="250" y="-10" class="pin-label-dark" text-anchor="middle">NSS</text>
                     </g>
 
-                    <!-- Joystick -->
+                    <!-- Joystick (Ancho ajustado para 5 pines) -->
                     <g transform="translate(880, 20)" class="component" id="comp-joystick">
-                        <rect width="150" height="100" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/>
-                        <circle cx="75" cy="50" r="30" fill="#34495e"/>
-                        <text x="75" y="15" class="pin-label-dark" text-anchor="middle">JOYSTICK</text>
+                        <rect width="170" height="100" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/>
+                        <circle cx="85" cy="50" r="30" fill="#34495e"/>
+                        <text x="85" y="15" class="pin-label-dark" text-anchor="middle">JOYSTICK</text>
                         
-                        <circle cx="40" cy="100" r="4" class="pin"/> <text x="40" y="115" class="pin-label-dark" text-anchor="middle">SW</text>
-                        <circle cx="70" cy="100" r="4" class="pin"/> <text x="70" y="115" class="pin-label-dark" text-anchor="middle">VRy</text>
-                        <circle cx="100" cy="100" r="4" class="pin"/> <text x="100" y="115" class="pin-label-dark" text-anchor="middle" fill="#e67e22">3.3V</text>
-                        <circle cx="130" cy="100" r="4" class="pin"/> <text x="130" y="115" class="pin-label-dark" text-anchor="middle">GND</text>
+                        <circle cx="25" cy="100" r="4" class="pin"/> <text x="25" y="115" class="pin-label-dark" text-anchor="middle">SW</text>
+                        <circle cx="55" cy="100" r="4" class="pin"/> <text x="55" y="115" class="pin-label-dark" text-anchor="middle">VRy</text>
+                        <circle cx="85" cy="100" r="4" class="pin"/> <text x="85" y="115" class="pin-label-dark" text-anchor="middle">VRx</text> <!-- Pin 5 Agregado -->
+                        <circle cx="115" cy="100" r="4" class="pin"/> <text x="115" y="115" class="pin-label-dark" text-anchor="middle" fill="#e67e22">3.3V</text>
+                        <circle cx="145" cy="100" r="4" class="pin"/> <text x="145" y="115" class="pin-label-dark" text-anchor="middle">GND</text>
                     </g>
 
-                    <!-- Circuito IR -->
+                    <!-- Circuito IR (Con Resistencia de 100 Ohms para el LED) -->
                     <g transform="translate(900, 220)" class="component" id="comp-ir">
                         <rect width="250" height="160" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5" stroke-dasharray="5,5"/>
                         <text x="125" y="25" class="pin-label-dark" text-anchor="middle" font-size="14">CIRCUITO IR (DISCRETO)</text>
                         
+                        <!-- Transistor -->
                         <circle cx="120" cy="90" r="22" class="circuit-element"/>
                         <path d="M 110 75 L 110 105" class="circuit-element"/>
                         <path d="M 110 85 L 130 65" class="circuit-element"/>
@@ -427,22 +431,28 @@
                         <polygon points="130,115 120,110 125,103" fill="#2c3e50"/>
                         <text x="150" y="95" class="pin-label-dark">2N2222</text>
                         
+                        <!-- Resistencia 10k en Base -->
                         <path d="M 40 100 L 50 100 L 55 90 L 65 110 L 75 90 L 85 110 L 90 100 L 110 100" class="circuit-element" style="stroke: #e67e22;"/>
                         <text x="65" y="80" class="pin-label-dark" text-anchor="middle">10kΩ</text>
                         
+                        <!-- LED Infrarrojo -->
                         <path d="M 130 40 L 145 65 L 115 65 Z" fill="none" stroke="#e74c3c" stroke-width="2"/>
                         <path d="M 110 40 L 150 40" stroke="#e74c3c" stroke-width="2"/>
                         <path d="M 155 45 L 170 30 M 165 55 L 180 40" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead)"/>
                         <text x="165" y="70" class="pin-label-dark">LED IR</text>
 
+                        <!-- Conexiones Base DAT y GND -->
                         <circle cx="0" cy="100" r="4" class="pin"/> <text x="0" y="115" class="pin-label-dark" text-anchor="middle">DAT</text>
                         <path d="M 0 100 L 40 100" class="circuit-element" stroke-width="1"/>
-                        
-                        <circle cx="0" cy="40" r="4" class="pin"/> <text x="0" y="30" class="pin-label-dark" text-anchor="middle" fill="#e67e22">3.3V</text>
-                        <path d="M 0 40 L 130 40" class="circuit-element" stroke-width="1"/>
-                        
                         <circle cx="0" cy="140" r="4" class="pin"/> <text x="0" y="155" class="pin-label-dark" text-anchor="middle">GND</text>
                         <path d="M 0 140 L 130 140 L 130 115" class="circuit-element" stroke-width="1"/>
+
+                        <!-- NUEVA: Resistencia Limitadora de 100 Ohms en línea de 3.3V -->
+                        <circle cx="0" cy="40" r="4" class="pin"/> <text x="0" y="30" class="pin-label-dark" text-anchor="middle" fill="#e67e22">3.3V</text>
+                        <!-- Camino ZigZag antes de llegar al LED -->
+                        <path d="M 0 40 L 40 40" class="circuit-element" stroke-width="1"/>
+                        <path d="M 40 40 L 45 30 L 55 50 L 65 30 L 75 50 L 80 40 L 130 40" class="circuit-element" style="stroke: #e67e22;"/>
+                        <text x="60" y="25" class="pin-label-dark" text-anchor="middle">100Ω</text>
                     </g>
 
                     <!-- Módulo Receptor IR -->
@@ -515,7 +525,7 @@
             
             <!-- Leyenda de Colores -->
             <div class="legend">
-                <h3> Leyenda de Señales</h3>
+                <h3>🎨 Leyenda de Señales</h3>
                 <div class="legend-items">
                     <div class="legend-item"><div class="legend-color" style="background: #e74c3c;"></div><span>VIN (Voltaje Crudo Batería/USB)</span></div>
                     <div class="legend-item"><div class="legend-color" style="background: #e67e22;"></div><span>3.3V (Voltaje Regulado Seguro)</span></div>
@@ -534,8 +544,8 @@
             'comp-oled': { title: 'Pantalla OLED 0.96"', details: [{ label: 'Protocolo', value: 'I2C' }, { label: 'Pines', value: 'SDA(25), SCL(26)' }] },
             'comp-sd': { title: 'Módulo Micro SD', details: [{ label: 'Protocolo', value: 'SPI' }, { label: 'CS', value: 'Pin 15' }] },
             'comp-rfid': { title: 'Módulo NFC PN532', details: [{ label: 'Frecuencia', value: '13.56 MHz (NFC, MIFARE)' }, { label: 'Protocolo', value: 'SPI (Por Dip Switch)' }, { label: 'NSS', value: 'Pin 5' }, { label: 'Capacidad', value: 'Lectura, Escritura y Emulación' }] },
-            'comp-joystick': { title: 'Joystick Analógico', details: [{ label: 'Eje Y', value: 'Pin 35' }, { label: 'Botón', value: 'Pin 32' }] },
-            'comp-ir': { title: 'Emisor Infrarrojo (TX)', details: [{ label: 'Transistor', value: '2N2222' }, { label: 'Resistencia', value: '10kΩ' }, { label: 'Control', value: 'Pin 4' }, { label: 'Alimentación', value: '3.3V Seguro' }] },
+            'comp-joystick': { title: 'Joystick Analógico', details: [{ label: 'Eje X', value: 'Pin 34' }, { label: 'Eje Y', value: 'Pin 35' }, { label: 'Botón', value: 'Pin 32' }] },
+            'comp-ir': { title: 'Emisor Infrarrojo (TX)', details: [{ label: 'Transistor', value: '2N2222' }, { label: 'Resistencia Base', value: '10kΩ' }, { label: 'Resistencia LED', value: '100Ω' }, { label: 'Control', value: 'Pin 4' }, { label: 'Alimentación', value: '3.3V Seguro' }] },
             'comp-ir-rx': { title: 'Receptor Infrarrojo (RX) RS003', details: [{ label: 'Función', value: 'Captura señales de controles remotos' }, { label: 'Modelo', value: 'RS003 (Módulo con LED IR + Receptor)' }, { label: 'Pin ESP32', value: 'IO 13' }, { label: 'Alimentación', value: '3.3V' }] },
             'comp-tp4056': { title: 'Módulo TP4056', details: [{ label: 'Función', value: 'Gestión de carga LiPo' }] },
             'comp-switch': { title: 'Switch Sleep', details: [{ label: 'Pin', value: 'Pin 14' }] },
@@ -550,11 +560,11 @@
             { module: 'MicroSD', mPin: 'CS', ePin: 'IO 15', notes: 'Chip Select SPI' },
             { module: 'PN532 / SD', mPin: 'MOSI/MISO/SCK', ePin: 'IO 23 / 19 / 18', notes: 'Bus SPI' },
             { module: 'Joystick', mPin: 'VCC', ePin: '3.3V', notes: 'Lógica Segura' },
-            { module: 'Joystick', mPin: 'VRy / SW', ePin: 'IO 35 / IO 32', notes: 'Control' },
-            { module: 'Emisor IR', mPin: 'LED IR (VCC)', ePin: '3.3V', notes: 'Alimentación Lógica Segura' },
+            { module: 'Joystick', mPin: 'VRx', ePin: 'IO 34', notes: 'Eje Horizontal (Nuevo)' },
+            { module: 'Joystick', mPin: 'VRy / SW', ePin: 'IO 35 / IO 32', notes: 'Eje Vertical y Botón' },
+            { module: 'Emisor IR', mPin: 'LED IR (VCC)', ePin: '3.3V', notes: 'Con Resistencia 100Ω limitadora' },
             { module: 'Emisor IR', mPin: 'Base Transistor', ePin: 'IO 4', notes: 'Con Resistencia 10kΩ' },
-            { module: 'Receptor IR RS003', mPin: 'DAT', ePin: 'IO 13', notes: 'Lectura de señal IR (38kHz)' },
-            { module: 'Receptor IR RS003', mPin: 'VCC / GND', ePin: '3.3V / GND', notes: 'Alimentación' }
+            { module: 'Receptor IR RS003', mPin: 'DAT', ePin: 'IO 13', notes: 'Lectura de señal IR (38kHz)' }
         ];
 
         const tbody = document.getElementById('connectionTable');
@@ -644,7 +654,6 @@
                     points.forEach((pt, index) => {
                         if (!startCompId && !endCompId) return;
                         
-                        // FIX DEFINITIVO: Candado en los puntos extremos para evitar que el cable salte a otro componente
                         if (index === 0 && startCompId) {
                             pt.boundComp = startCompId;
                             return;
@@ -654,7 +663,6 @@
                             return;
                         }
 
-                        // Lógica de "Gravedad" solo para los puntos codo intermedios del cable
                         if (startCompId && !endCompId) {
                             pt.boundComp = startCompId;
                         } else if (!startCompId && endCompId) {
