@@ -304,12 +304,12 @@
                         <path d="M 1050 660 L 1150 660" class="wire w-gnd" data-signal="BATT_GND"/> 
 
                         <path d="M 530 260 L 460 260 L 460 100 L 280 100 L 280 120" class="wire w-i2c" data-signal="SDA"/> 
-                        <path d="M 460 100 L 460 640 L 310 640 L 310 650" class="wire w-i2c" data-signal="SDA"/> 
+                        <path d="M 460 100 L 460 630 L 280 630 L 280 650" class="wire w-i2c" data-signal="SDA"/> 
                         <path d="M 530 300 L 450 300 L 450 90 L 310 90 L 310 120" class="wire w-i2c" data-signal="SCL"/> 
-                        <path d="M 450 90 L 450 630 L 340 630 L 340 650" class="wire w-i2c" data-signal="SCL"/> 
+                        <path d="M 450 90 L 450 640 L 310 640 L 310 650" class="wire w-i2c" data-signal="SCL"/> 
 
-                        <path d="M 530 380 L 430 380 L 430 630 L 250 630 L 250 650" class="wire w-ctrl" data-signal="NFC_RST"/> 
-                        <path d="M 810 340 L 890 340 L 890 440 L 500 440 L 500 630 L 370 630 L 370 650" class="wire w-ctrl" data-signal="NFC_IRQ"/>
+                        <path d="M 530 340 L 440 340 L 440 660 L 250 660 L 250 650" class="wire w-ctrl" data-signal="NFC_RST"/> 
+                        <path d="M 810 150 L 850 150 L 850 450 L 480 450 L 480 660 L 370 660 L 370 650" class="wire w-ctrl" data-signal="NFC_IRQ"/>
 
                         <path d="M 530 420 L 420 420 L 420 380 L 310 380 L 310 430" class="wire w-spi" data-signal="MOSI"/> 
                         <path d="M 530 460 L 410 460 L 410 370 L 280 370 L 280 430" class="wire w-spi" data-signal="MISO"/> 
@@ -326,107 +326,73 @@
                     <g transform="translate(530, 150)" class="component" id="comp-esp32"> 
                         <rect width="280" height="420" class="component-bg"/> 
                         <text x="140" y="30" class="component-label" text-anchor="middle">ESP32-S3</text> 
-                         
                         <circle cx="0" cy="30" r="4" class="pin"/> <text x="15" y="34" class="pin-label" fill="#e67e22">3.3V</text> 
                         <circle cx="0" cy="70" r="4" class="pin"/> <text x="15" y="74" class="pin-label">GND</text> 
                         <circle cx="0" cy="110" r="4" class="pin"/> <text x="15" y="114" class="pin-label">IO 25 (SDA)</text> 
                         <circle cx="0" cy="150" r="4" class="pin"/> <text x="15" y="154" class="pin-label">IO 26 (SCL)</text> 
-                        <circle cx="0" cy="230" r="4" class="pin"/> <text x="15" y="234" class="pin-label">IO 22 (NFC RST)</text> 
+                        <circle cx="0" cy="190" r="4" class="pin"/> <text x="15" y="194" class="pin-label">IO 5 (NFC RST)</text> 
                         <circle cx="0" cy="270" r="4" class="pin"/> <text x="15" y="274" class="pin-label">IO 23 (MOSI)</text> 
                         <circle cx="0" cy="310" r="4" class="pin"/> <text x="15" y="314" class="pin-label">IO 19 (MISO)</text> 
                         <circle cx="0" cy="350" r="4" class="pin"/> <text x="15" y="354" class="pin-label">IO 18 (SCK)</text> 
 
-                        <circle cx="280" cy="30" r="4" class="pin"/> <text x="265" y="34" class="pin-label" text-anchor="end" fill="#e74c3c">VIN (IN)</text> 
+                        <circle cx="280" cy="30" r="4" class="pin"/> <text x="265" y="34" class="pin-label" text-anchor="end" fill="#e74c3c">VIN</text> 
                         <circle cx="280" cy="110" r="4" class="pin"/> <text x="265" y="114" class="pin-label" text-anchor="end">IO 35 (JOY Y)</text> 
-                        <circle cx="280" cy="150" r="4" class="pin"/> <text x="265" y="154" class="pin-label" text-anchor="end">IO 32 (JOY SW)</text> 
-                        <circle cx="280" cy="190" r="4" class="pin"/> <text x="265" y="194" class="pin-label" text-anchor="end">IO 4 (NFC IRQ / IR TX)</text> 
+                        <circle cx="280" cy="150" r="4" class="pin"/> <text x="265" y="114" class="pin-label" text-anchor="end">IO 21 (NFC IRQ)</text> 
+                        <circle cx="280" cy="190" r="4" class="pin"/> <text x="265" y="194" class="pin-label" text-anchor="end">IO 4 (IR TX)</text> 
                         <circle cx="280" cy="270" r="4" class="pin"/> <text x="265" y="274" class="pin-label" text-anchor="end" fill="#e84393">IO 15 (SD CS)</text> 
-                        <circle cx="280" cy="310" r="4" class="pin"/> <text x="265" y="314" class="pin-label" text-anchor="end">IO 13 (IR RX)</text> 
                     </g> 
 
                     <g transform="translate(150, 120)" class="component" id="comp-oled"> 
                         <rect width="180" height="100" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/> 
                         <rect x="10" y="30" width="160" height="60" fill="#2c3e50" rx="3"/> 
                         <text x="90" y="20" class="pin-label-dark" text-anchor="middle">OLED 0.96" (I2C)</text> 
-                        <circle cx="70" cy="0" r="4" class="pin"/> <text x="70" y="-10" class="pin-label-dark" text-anchor="middle">3.3V</text> 
-                        <circle cx="100" cy="0" r="4" class="pin"/> <text x="100" y="-10" class="pin-label-dark" text-anchor="middle">GND</text> 
-                        <circle cx="130" cy="0" r="4" class="pin"/> <text x="130" y="-10" class="pin-label-dark" text-anchor="middle">SDA</text> 
-                        <circle cx="160" cy="0" r="4" class="pin"/> <text x="160" y="-10" class="pin-label-dark" text-anchor="middle">SCL</text> 
+                        <circle cx="130" cy="0" r="4" class="pin"/> <text x="130" y="-10" class="pin-label-dark">SDA</text> 
+                        <circle cx="160" cy="0" r="4" class="pin"/> <text x="160" y="-10" class="pin-label-dark">SCL</text> 
                     </g> 
                      
                     <g transform="translate(150, 430)" class="component" id="comp-sd"> 
                         <rect width="250" height="80" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/> 
-                        <text x="125" y="45" class="pin-label-dark" text-anchor="middle" font-size="14">MÓDULO MICRO SD</text> 
-                        <circle cx="70" cy="0" r="4" class="pin"/> <text x="70" y="-10" class="pin-label-dark" text-anchor="middle">3.3V</text> 
-                        <circle cx="100" cy="0" r="4" class="pin"/> <text x="100" y="-10" class="pin-label-dark" text-anchor="middle">GND</text> 
-                        <circle cx="220" cy="0" r="4" class="pin"/> <text x="220" y="-10" class="pin-label-dark" text-anchor="middle" fill="#e84393">CS</text> 
+                        <text x="125" y="45" class="pin-label-dark" text-anchor="middle">MÓDULO MICRO SD</text> 
+                        <circle cx="220" cy="0" r="4" class="pin"/> <text x="220" y="-10" class="pin-label-dark" fill="#e84393">CS</text> 
                     </g> 
 
                     <g transform="translate(150, 650)" class="component" id="comp-rfid"> 
                         <rect width="280" height="120" fill="#ecf0f1" stroke="#c0392b" stroke-width="3" rx="5"/> 
                         <text x="140" y="65" class="pin-label-dark" text-anchor="middle" font-size="16">PN532 NFC (MODO I2C)</text> 
-                        <text x="140" y="85" class="pin-label-dark" text-anchor="middle" font-size="10" fill="#7f8c8d">SET SWITCHES: 1:ON, 2:OFF</text> 
-                        <circle cx="70" cy="0" r="4" class="pin"/> <text x="70" y="-10" class="pin-label-dark" text-anchor="middle">3.3V</text> 
-                        <circle cx="100" cy="0" r="4" class="pin"/> <text x="100" y="-10" class="pin-label-dark" text-anchor="middle" fill="#9b59b6">RST(22)</text> 
-                        <circle cx="130" cy="0" r="4" class="pin"/> <text x="130" y="-10" class="pin-label-dark" text-anchor="middle">GND</text> 
-                        <circle cx="160" cy="0" r="4" class="pin"/> <text x="160" y="-10" class="pin-label-dark" text-anchor="middle">SDA(25)</text> 
-                        <circle cx="190" cy="0" r="4" class="pin"/> <text x="190" y="-10" class="pin-label-dark" text-anchor="middle">SCL(26)</text> 
-                        <circle cx="220" cy="0" r="4" class="pin"/> <text x="220" y="-10" class="pin-label-dark" text-anchor="middle" fill="#9b59b6">IRQ(4)</text> 
-                    </g> 
-
-                    <g transform="translate(880, 20)" class="component" id="comp-joystick"> 
-                        <rect width="150" height="100" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/> 
-                        <circle cx="75" cy="50" r="30" fill="#34495e"/> 
-                        <text x="75" y="15" class="pin-label-dark" text-anchor="middle">JOYSTICK</text> 
-                        <circle cx="40" cy="100" r="4" class="pin"/> <text x="40" y="115" class="pin-label-dark" text-anchor="middle">SW</text> 
-                        <circle cx="70" cy="100" r="4" class="pin"/> <text x="70" y="115" class="pin-label-dark" text-anchor="middle">VRy</text> 
+                        <text x="140" y="85" class="pin-label-dark" text-anchor="middle" font-size="11" fill="#7f8c8d">(Switches 1:ON, 2:OFF)</text> 
+                        <circle cx="100" cy="0" r="4" class="pin"/> <text x="100" y="-10" class="pin-label-dark">RST(5)</text> 
+                        <circle cx="130" cy="0" r="4" class="pin"/> <text x="130" y="-10" class="pin-label-dark">SDA</text> 
+                        <circle cx="160" cy="0" r="4" class="pin"/> <text x="160" y="-10" class="pin-label-dark">SCL</text> 
+                        <circle cx="220" cy="0" r="4" class="pin"/> <text x="220" y="-10" class="pin-label-dark">IRQ(21)</text> 
                     </g> 
 
                     <g transform="translate(900, 220)" class="component" id="comp-ir"> 
                         <rect width="250" height="160" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5" stroke-dasharray="5,5"/> 
                         <circle cx="120" cy="90" r="22" class="circuit-element"/> 
-                        <path d="M 110 75 L 110 105" class="circuit-element"/> 
-                        <path d="M 110 85 L 130 65" class="circuit-element"/> 
-                        <path d="M 110 95 L 130 115" class="circuit-element"/> 
-                        <polygon points="130,115 120,110 125,103" fill="#2c3e50"/> 
                         <text x="150" y="95" class="pin-label-dark">2N2222</text> 
                         <text x="65" y="80" class="pin-label-dark" text-anchor="middle">10kΩ</text> 
-                    </g> 
-
-                    <g transform="translate(900, 400)" class="component" id="comp-ir-rx"> 
-                        <rect width="120" height="80" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/> 
-                        <text x="60" y="25" class="pin-label-dark" text-anchor="middle" font-size="12">RECEPTOR IR RS003</text> 
-                        <circle cx="20" cy="80" r="4" class="pin"/> <text x="20" y="70" class="pin-label-dark" text-anchor="middle">DAT</text> 
+                        <text x="165" y="70" class="pin-label-dark">LED IR (IO 4)</text> 
                     </g> 
 
                     <g transform="translate(900, 600)" class="component" id="comp-tp4056"> 
                         <rect width="150" height="80" fill="#ecf0f1" stroke="#2980b9" stroke-width="2" rx="5"/> 
-                        <text x="75" y="45" class="pin-label-dark" text-anchor="middle" font-size="14">MÓDULO TP4056</text> 
-                        <circle cx="0" cy="30" r="4" class="pin"/> <text x="0" y="20" class="pin-label-dark" text-anchor="middle" fill="#e74c3c">OUT+</text> 
-                    </g> 
-
-                    <g transform="translate(1150, 620)" class="component" id="comp-battery"> 
-                        <rect width="100" height="60" fill="#f1c40f" stroke="#e67e22" stroke-width="2" rx="5"/> 
-                        <text x="50" y="35" class="pin-label-dark" text-anchor="middle">BATERÍA 3.7V</text> 
+                        <text x="75" y="45" class="pin-label-dark" text-anchor="middle">TP4056</text> 
                     </g> 
                 </svg> 
             </div> 
              
             <div class="legend"> 
-                <h3>🔌 Tabla de Conexiones NFC (Modo I2C)</h3> 
+                <h3>🔌 Tabla de Conexiones Detallada</h3> 
                 <table style="width: 100%; border-collapse: collapse; margin-top: 15px;"> 
                     <thead style="background: #1e3c72; color: white;"> 
                         <tr> 
-                            <th style="padding: 12px; border: 1px solid #dee2e6;">Pin PN532</th> 
-                            <th style="padding: 12px; border: 1px solid #dee2e6;">Pin ESP32-S3</th> 
-                            <th style="padding: 12px; border: 1px solid #dee2e6;">Notas Técnicas</th> 
+                            <th style="padding: 10px;">Módulo</th> 
+                            <th style="padding: 10px;">Pin Módulo</th> 
+                            <th style="padding: 10px;">Pin ESP32</th> 
+                            <th style="padding: 10px;">Notas</th> 
                         </tr> 
                     </thead> 
-                    <tbody style="background: white;"> 
-                        <tr><td style="padding: 10px; border: 1px solid #ddd;">SDA</td><td style="padding: 10px; border: 1px solid #ddd; font-weight:bold;">IO 25</td><td>Bus compartido con OLED</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #ddd;">SCL</td><td style="padding: 10px; border: 1px solid #ddd; font-weight:bold;">IO 26</td><td>Bus compartido con OLED</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #ddd;">RST (Reset)</td><td style="padding: 10px; border: 1px solid #ddd; font-weight:bold;">IO 22</td><td>Control de encendido</td></tr>
-                        <tr><td style="padding: 10px; border: 1px solid #ddd;">IRQ (Interrupt)</td><td style="padding: 10px; border: 1px solid #ddd; font-weight:bold;">IO 4</td><td>Señal de datos listos</td></tr>
+                    <tbody id="connectionTable"> 
                     </tbody> 
                 </table> 
             </div> 
@@ -435,10 +401,24 @@
 
     <script> 
         const componentData = { 
-            'comp-esp32': { title: 'ESP32-S3', details: [{ label: 'I2C Master', value: 'IO 25, 26' }, { label: 'PN532 RST', value: 'IO 22' }, { label: 'PN532 IRQ', value: 'IO 4' }] }, 
-            'comp-rfid': { title: 'NFC PN532 (I2C)', details: [{ label: 'I2C Address', value: '0x24' }, { label: 'Switch Config', value: '1:ON, 2:OFF' }, { label: 'Reset Pin', value: '22' }, { label: 'IRQ Pin', value: '4' }] }, 
-            'comp-oled': { title: 'OLED (I2C)', details: [{ label: 'Dirección', value: '0x3C' }, { label: 'Bus', value: 'Compartido' }] }
+            'comp-esp32': { title: 'ESP32-S3', details: [{ label: 'Bus I2C', value: 'Pins 25 y 26' }, { label: 'IR TX', value: 'IO 4' }, { label: 'NFC RST', value: 'IO 5' }, { label: 'NFC IRQ', value: 'IO 21' }] }, 
+            'comp-rfid': { title: 'PN532 NFC', details: [{ label: 'Modo Actual', value: 'I2C' }, { label: 'Reset', value: 'Pin 5' }, { label: 'IRQ', value: 'Pin 21' }, { label: 'Bus', value: '25, 26' }] }, 
+            'comp-ir': { title: 'Circuito IR', details: [{ label: 'Control', value: 'Pin IO 4' }, { label: 'Transistor', value: '2N2222' }] } 
         }; 
+
+        const connections = [ 
+            { module: 'Bus I2C (OLED+NFC)', mPin: 'SDA / SCL', ePin: 'IO 25 / IO 26', notes: 'Bus compartido' }, 
+            { module: 'NFC PN532', mPin: 'RST / IRQ', ePin: 'IO 5 / IO 21', notes: 'Control de interrupción' }, 
+            { module: 'Emisor IR', mPin: 'DAT', ePin: 'IO 4', notes: 'Independiente' }, 
+            { module: 'MicroSD', mPin: 'CS', ePin: 'IO 15', notes: 'Chip Select SPI' } 
+        ]; 
+
+        const tbody = document.getElementById('connectionTable'); 
+        connections.forEach(conn => { 
+            const tr = document.createElement('tr'); 
+            tr.innerHTML = `<td>${conn.module}</td><td>${conn.mPin}</td><td>${conn.ePin}</td><td>${conn.notes}</td>`; 
+            tbody.appendChild(tr); 
+        }); 
 
         const svg = document.getElementById('schematic'); 
         let draggedElement = null; 
@@ -449,18 +429,17 @@
             if (target) { 
                 draggedElement = target; 
                 const CTM = svg.getScreenCTM(); 
-                const mousePos = { x: (e.clientX - CTM.e) / CTM.a, y: (e.clientY - CTM.f) / CTM.d }; 
-                const transform = draggedElement.transform.baseVal.getItem(0); 
-                offset.x = mousePos.x - transform.matrix.e; 
-                offset.y = mousePos.y - transform.matrix.f; 
+                offset.x = (e.clientX - CTM.e) / CTM.a - draggedElement.transform.baseVal.getItem(0).matrix.e; 
+                offset.y = (e.clientY - CTM.f) / CTM.d - draggedElement.transform.baseVal.getItem(0).matrix.f; 
             } 
         }); 
 
         svg.addEventListener('mousemove', (e) => { 
             if (draggedElement) { 
                 const CTM = svg.getScreenCTM(); 
-                const mousePos = { x: (e.clientX - CTM.e) / CTM.a, y: (e.clientY - CTM.f) / CTM.d }; 
-                draggedElement.transform.baseVal.getItem(0).setTranslate(mousePos.x - offset.x, mousePos.y - offset.y); 
+                const x = (e.clientX - CTM.e) / CTM.a - offset.x; 
+                const y = (e.clientY - CTM.f) / CTM.d - offset.y; 
+                draggedElement.transform.baseVal.getItem(0).setTranslate(x, y); 
             } 
         }); 
 
@@ -479,7 +458,6 @@
         }); 
 
         function resetLayout() { location.reload(); } 
-        function downloadSchematic() { alert("Simulación: SVG listo para guardar."); }
     </script> 
 </body> 
 </html>
