@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLIPPER-DIY - Esquemático completo con capacitores</title>
+    <title>FLIPPER-DIY - Esquemático Completo (CORREGIDO: IRQ y RX DAT)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
@@ -47,9 +47,9 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>🔧 FLIPPER-DIY - Esquemático Completo</h1>
-        <p>ESP32 + Boost (3.7V→5V) + Diodo Schottky + Capacitores (100µF electrolítico y 2 cerámicos 0.1µF)</p>
-        <p>Todos los módulos: OLED, PN532, MicroSD, Joystick, IR TX/RX, Switch Sleep</p>
+        <h1>🔧 FLIPPER-DIY - Esquemático Completo (CORREGIDO)</h1>
+        <p>ESP32 + Boost (3.7V→5V) + Diodo Schottky + Capacitores</p>
+        <p>Todos los módulos: OLED, PN532 (IRQ conectado), MicroSD, Joystick, IR TX/RX (DAT conectado), Switch Sleep</p>
     </div>
     <div class="controls">
         <div class="control-group">
@@ -123,9 +123,11 @@
                     <path d="M 580 300 L 450 300 L 450 90 L 310 90 L 310 120" class="wire w-i2c" data-signal="SCL"/>
                     <path d="M 450 90 L 450 640 L 310 640 L 310 650" class="wire w-i2c" data-signal="SCL"/>
 
-                    <!-- Control NFC -->
+                    <!-- Control NFC RST (GPIO5) - ya conectado -->
                     <path d="M 580 340 L 430 340 L 430 630 L 340 630 L 340 650" class="wire w-ctrl" data-signal="NFC_RST"/>
-                    <path d="M 580 500 L 870 500 L 870 700 L 370 700 L 370 650" class="wire w-ctrl" data-signal="NFC_IRQ"/>
+
+                    <!-- NUEVO: Control NFC IRQ (GPIO21) - conectado al pin IRQ del PN532 -->
+                    <path d="M 580 500 L 870 500 L 870 700 L 370 700 L 370 650 L 370 695" class="wire w-ctrl" data-signal="NFC_IRQ"/>
 
                     <!-- SPI MicroSD -->
                     <path d="M 580 420 L 420 420 L 420 380 L 310 380 L 310 430" class="wire w-spi" data-signal="MOSI"/>
@@ -143,8 +145,8 @@
                     <!-- Switch sleep -->
                     <path d="M 580 380 L 890 380 L 890 490 L 980 490 L 980 520" class="wire w-ctrl" data-signal="SWITCH"/>
 
-                    <!-- IR RX -->
-                    <path d="M 580 460 L 920 460 L 920 480" class="wire w-ctrl" data-signal="IR_RX"/>
+                    <!-- NUEVO: IR RX DAT (GPIO13) conectado al pin DAT del receptor RS003 -->
+                    <path d="M 580 460 L 920 460 L 920 480 L 920 495" class="wire w-ctrl" data-signal="IR_RX"/>
 
                     <!-- ===== ALIMENTACIÓN PRINCIPAL CON BOOST, DIODO Y CAPACITORES ===== -->
                     <!-- Batería a TP4056 -->
@@ -158,7 +160,7 @@
 
                     <!-- Boost OUT+ a Diodo Ánodo -->
                     <path d="M 1200 600 L 1260 600" class="wire w-pwr" data-signal="BOOST_OUT"/>
-                    <!-- Boost OUT- a GND (ya conectado arriba, pero añadimos ramal) -->
+                    <!-- Boost OUT- a GND -->
                     <path d="M 1200 660 L 1260 660" class="wire w-gnd" data-signal="GND"/>
 
                     <!-- Diodo Cátodo a VIN (nodo principal de 5V) y a ESP32 VIN -->
@@ -275,7 +277,7 @@
                     <path d="M 0 140 L 130 140 L 130 115" class="circuit-element" stroke-width="1"/>
                 </g>
 
-                <!-- Receptor IR -->
+                <!-- Receptor IR RS003 (con pin DAT en posición correcta) -->
                 <g transform="translate(900, 400)" class="component" id="comp-ir-rx">
                     <rect width="120" height="80" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/>
                     <text x="60" y="25" class="pin-label-dark" text-anchor="middle" font-size="12">RECEPTOR IR</text>
@@ -336,7 +338,7 @@
                     <circle cx="0" cy="40" r="4" class="pin"/> <text x="15" y="45" class="pin-label-dark">GND</text>
                 </g>
 
-                <!-- Capacitor electrolítico 100µF -->
+                <!-- Capacitor electrolítico -->
                 <g transform="translate(1420, 140)" class="component" id="cap-electro">
                     <rect width="60" height="70" fill="#ecf0f1" stroke="#2980b9" stroke-width="2" rx="5"/>
                     <text x="30" y="15" class="pin-label-dark" text-anchor="middle" font-size="10">100µF</text>
@@ -366,7 +368,7 @@
             </svg>
         </div>
 
-        <!-- Tabla de conexiones -->
+        <!-- Tabla de conexiones (actualizada con IRQ y DAT) -->
         <div class="legend">
             <h3>📋 Tabla de Conexiones Detallada</h3>
             <div style="overflow-x: auto;">
@@ -401,7 +403,7 @@
         'comp-rfid': { title: 'PN532 NFC (I2C)', details: [{ label: 'RST', value: 'GPIO5' }, { label: 'IRQ', value: 'GPIO21' }] },
         'comp-joystick': { title: 'Joystick analógico', details: [{ label: 'Eje Y', value: 'GPIO35' }, { label: 'Botón', value: 'GPIO32' }] },
         'comp-ir': { title: 'Emisor IR', details: [{ label: 'Base transistor', value: 'GPIO4 con R=1kΩ' }] },
-        'comp-ir-rx': { title: 'Receptor IR RS003', details: [{ label: 'Señal', value: 'GPIO13' }] },
+        'comp-ir-rx': { title: 'Receptor IR RS003', details: [{ label: 'Señal DAT', value: 'GPIO13' }] },
         'comp-tp4056': { title: 'Cargador TP4056', details: [{ label: 'Batería', value: 'LiPo 3.7V' }] },
         'comp-boost': { title: 'Boost MT3608', details: [{ label: 'Entrada', value: '3.7-4.2V' }, { label: 'Salida', value: '5V' }] },
         'comp-diodo': { title: 'Diodo Schottky 1N5819', details: [{ label: 'Protección', value: 'Anti-retorno' }] },
@@ -421,12 +423,13 @@
         { module: 'Cap. cerámico #2', mPin: '---', ePin: '3.3V y GND', notes: '0.1µF - desacoplo lógica' },
         { module: 'OLED', mPin: 'SDA/SCL', ePin: 'GPIO25/26', notes: 'I2C compartido' },
         { module: 'PN532', mPin: 'SDA/SCL', ePin: 'GPIO25/26', notes: 'I2C compartido' },
-        { module: 'PN532', mPin: 'RST/IRQ', ePin: 'GPIO5/21', notes: '' },
+        { module: 'PN532', mPin: 'RST', ePin: 'GPIO5', notes: 'Reset' },
+        { module: 'PN532', mPin: 'IRQ', ePin: 'GPIO21', notes: 'Interrupción' },  // <-- Corregido
         { module: 'MicroSD', mPin: 'CS', ePin: 'GPIO15', notes: 'SPI' },
         { module: 'MicroSD', mPin: 'MOSI/MISO/SCK', ePin: 'GPIO23/19/18', notes: '' },
         { module: 'Joystick', mPin: 'VRy/SW', ePin: 'GPIO35/32', notes: '' },
         { module: 'Emisor IR', mPin: 'Base', ePin: 'GPIO4', notes: 'Resistencia 1kΩ' },
-        { module: 'Receptor IR', mPin: 'DAT', ePin: 'GPIO13', notes: '' },
+        { module: 'Receptor IR', mPin: 'DAT', ePin: 'GPIO13', notes: 'Señal' },   // <-- Corregido
         { module: 'Switch Sleep', mPin: '---', ePin: 'GPIO14 y GND', notes: 'Wake up' }
     ];
 
@@ -448,7 +451,6 @@
     const wiresData = [];
 
     function initDynamicWires() {
-        // Guardar posiciones iniciales de cada componente
         document.querySelectorAll('.component').forEach(comp => {
             let tx = 0, ty = 0;
             const transformList = comp.transform.baseVal;
@@ -635,7 +637,7 @@
         }
     });
 
-    // Resaltado de cables al pasar el ratón
+    // Resaltado de cables
     document.querySelectorAll('.wire').forEach(wire => {
         wire.addEventListener('mouseenter', function() {
             const signal = this.getAttribute('data-signal');
@@ -686,7 +688,7 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'FLIPPER_COMPLETO_CAPACITORES.svg';
+        a.download = 'FLIPPER_CORREGIDO_IRQ_RX.svg';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
