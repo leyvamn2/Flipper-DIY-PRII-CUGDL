@@ -169,16 +169,22 @@
                     <path d="M 1320 660 L 1380 660 L 1380 220 L 840 220" class="wire w-gnd" data-signal="GND"/>
 
                     <!-- Capacitor electrolítico 100µF en VIN -->
-                    <path d="M 1420 150 L 1450 150" class="wire w-vin" data-signal="VIN"/>
-                    <path d="M 1420 200 L 1450 200" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 1380 180 L 1380 100 L 1395 100" class="wire w-vin" data-signal="VIN"/>
+                    <path d="M 1380 220 L 1455 220 L 1455 100" class="wire w-gnd" data-signal="GND"/>
 
                     <!-- Capacitor cerámico #1 en VIN -->
-                    <path d="M 1480 150 L 1510 150" class="wire w-vin" data-signal="VIN"/>
-                    <path d="M 1480 200 L 1510 200" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 1380 180 L 1380 90 L 1475 90" class="wire w-vin" data-signal="VIN"/>
+                    <path d="M 1380 220 L 1525 220 L 1525 90" class="wire w-gnd" data-signal="GND"/>
 
                     <!-- Capacitor cerámico #2 en 3.3V -->
-                    <path d="M 720 120 L 750 120" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 720 160 L 750 160" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 520 180 L 520 95" class="wire w-3v3" data-signal="3.3V"/>
+                    <path d="M 570 220 L 570 95" class="wire w-gnd" data-signal="GND"/>
+
+                    <!-- Puntos de unión (junction dots) en las conexiones T -->
+                    <circle cx="1380" cy="180" r="4" fill="#e74c3c" stroke="none"/>
+                    <circle cx="1380" cy="220" r="4" fill="#27ae60" stroke="none"/>
+                    <circle cx="520" cy="180" r="4" fill="#e67e22" stroke="none"/>
+                    <circle cx="570" cy="220" r="4" fill="#27ae60" stroke="none"/>
                 </g>
 
                 <!-- ========== COMPONENTES ========== -->
@@ -339,7 +345,7 @@
                 </g>
 
                 <!-- Capacitor electrolítico -->
-                <g transform="translate(1420, 140)" class="component" id="cap-electro">
+                <g transform="translate(1395, 50)" class="component" id="cap-electro">
                     <rect width="60" height="70" fill="#ecf0f1" stroke="#2980b9" stroke-width="2" rx="5"/>
                     <text x="30" y="15" class="pin-label-dark" text-anchor="middle" font-size="10">100µF</text>
                     <text x="30" y="30" class="pin-label-dark" text-anchor="middle" font-size="9">16V</text>
@@ -349,7 +355,7 @@
                 </g>
 
                 <!-- Cerámico #1 en VIN -->
-                <g transform="translate(1480, 140)" class="component" id="cap-cer1">
+                <g transform="translate(1475, 55)" class="component" id="cap-cer1">
                     <rect width="50" height="50" fill="#ecf0f1" stroke="#e67e22" stroke-width="1.5" rx="5"/>
                     <text x="25" y="15" class="pin-label-dark" text-anchor="middle" font-size="9">0.1µF</text>
                     <use href="#cap-cer" x="10" y="25" width="30" height="15"/>
@@ -358,7 +364,7 @@
                 </g>
 
                 <!-- Cerámico #2 en 3.3V -->
-                <g transform="translate(700, 110)" class="component" id="cap-cer2">
+                <g transform="translate(520, 60)" class="component" id="cap-cer2">
                     <rect width="50" height="50" fill="#ecf0f1" stroke="#e67e22" stroke-width="1.5" rx="5"/>
                     <text x="25" y="15" class="pin-label-dark" text-anchor="middle" font-size="9">0.1µF</text>
                     <use href="#cap-cer" x="10" y="25" width="30" height="15"/>
@@ -441,7 +447,8 @@
     });
 
     // -------------------------------------------------------------
-    // ALGORITMO DE ARRASTRE CON CABLES DINÁMICOS (COMPLETO)
+    // ALGORITMO DE ARRASTRE CON CABLES DINÁMICOS (REESCRITO)
+    // Usa posiciones reales de pines en lugar de bbox hit-testing
     // -------------------------------------------------------------
     const svgEl = document.getElementById('schematic');
     let draggedComponent = null;
@@ -451,6 +458,7 @@
     const wiresData = [];
 
     function initDynamicWires() {
+        // Paso 1: Registrar cada componente con su posición y pines reales
         document.querySelectorAll('.component').forEach(comp => {
             let tx = 0, ty = 0;
             const transformList = comp.transform.baseVal;
@@ -459,35 +467,40 @@
                 tx = transform.matrix.e;
                 ty = transform.matrix.f;
             }
-            const bbox = comp.getBBox();
+
+            // Extraer posiciones globales de todos los pines (circle.pin)
+            // Posición global = translate del componente + (cx, cy) local del pin
+            const pins = [];
+            comp.querySelectorAll('.pin').forEach(pin => {
+                const cx = parseFloat(pin.getAttribute('cx')) || 0;
+                const cy = parseFloat(pin.getAttribute('cy')) || 0;
+                pins.push({ gx: tx + cx, gy: ty + cy });
+            });
+
             componentsData[comp.id] = {
                 id: comp.id,
-                x: bbox.x + tx,
-                y: bbox.y + ty,
-                width: bbox.width,
-                height: bbox.height,
                 tx: tx,
-                ty: ty
+                ty: ty,
+                pins: pins
             };
         });
 
-        function getComponentAtEndpoint(x, y) {
-            let closest = null;
-            let minDist = Infinity;
-            const pad = 15;
+        // Paso 2: Para cada cable, vincular extremos al componente
+        // cuyo pin esté más cercano (radio de 30px)
+        function findClosestPinComponent(x, y) {
+            let bestComp = null;
+            let bestDist = 30; // radio máximo de conexión en px SVG
             for (const key in componentsData) {
-                const c = componentsData[key];
-                if (x >= c.x - pad && x <= c.x + c.width + pad && y >= c.y - pad && y <= c.y + c.height + pad) {
-                    const cx = c.x + c.width / 2;
-                    const cy = c.y + c.height / 2;
-                    const d = Math.hypot(x - cx, y - cy);
-                    if (d < minDist) {
-                        minDist = d;
-                        closest = c.id;
+                const comp = componentsData[key];
+                for (const pin of comp.pins) {
+                    const d = Math.hypot(x - pin.gx, y - pin.gy);
+                    if (d < bestDist) {
+                        bestDist = d;
+                        bestComp = key;
                     }
                 }
             }
-            return closest;
+            return bestComp;
         }
 
         document.querySelectorAll('.wire').forEach(wire => {
@@ -512,15 +525,13 @@
             });
             if (points.length < 2) return;
 
-            const startComp = getComponentAtEndpoint(points[0].x, points[0].y);
-            const endComp = getComponentAtEndpoint(points[points.length - 1].x, points[points.length - 1].y);
+            // Vincular SOLO el primer y último punto al pin más cercano
+            // Los puntos intermedios son de enrutamiento y permanecen fijos
+            const firstPt = points[0];
+            const lastPt = points[points.length - 1];
 
-            points.forEach((pt, idx) => {
-                if (idx === 0 && startComp) pt.boundComp = startComp;
-                else if (idx === points.length - 1 && endComp) pt.boundComp = endComp;
-                else if (startComp) pt.boundComp = startComp;
-                else if (endComp) pt.boundComp = endComp;
-            });
+            firstPt.boundComp = findClosestPinComponent(firstPt.origX, firstPt.origY);
+            lastPt.boundComp = findClosestPinComponent(lastPt.origX, lastPt.origY);
 
             wiresData.push({ element: wire, points: points });
         });
