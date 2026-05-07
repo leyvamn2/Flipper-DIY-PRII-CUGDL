@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLIPPER-DIY - Esquemático Completo </title>
+    <title>FLIPPER-DIY - Esquemático Completo</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
@@ -49,7 +49,7 @@
     <div class="header">
         <h1>🔧 FLIPPER-DIY - Esquemático Completo (CORREGIDO)</h1>
         <p>ESP32 + Boost (3.7V→5V) + Diodo Schottky + Capacitores</p>
-        <p>Todos los módulos: OLED, PN532 (IRQ conectado), MicroSD, Joystick, IR TX/RX (DAT conectado), Switch Sleep</p>
+        <p>Todos los módulos conectados perfectamente en sus pines correspondientes</p>
     </div>
     <div class="controls">
         <div class="control-group">
@@ -98,97 +98,74 @@
                 </defs>
                 <rect width="100%" height="100%" fill="url(#grid)" />
 
-                <!-- ========== CABLES PRINCIPALES ========== -->
                 <g id="wiring">
-                    <!-- 3.3V desde ESP32 a periféricos -->
-                    <path d="M 580 180 L 480 180 L 480 80 L 220 80 L 220 120" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 580 180 L 480 180 L 480 400 L 220 400 L 220 430" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 580 180 L 480 180 L 480 620 L 220 620 L 220 650" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 580 180 L 480 180 L 480 30 L 980 30 L 980 120" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 580 180 L 480 180 L 480 30 L 900 30 L 900 260" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 580 180 L 480 180 L 480 30 L 1020 30 L 1020 480 L 1000 480" class="wire w-3v3" data-signal="3.3V"/>
+                    <path d="M 560 180 L 480 180 L 480 80 L 220 80 L 220 120" class="wire w-3v3" data-signal="3.3V"/>
+                    <path d="M 560 180 L 480 180 L 480 400 L 220 400 L 220 430" class="wire w-3v3" data-signal="3.3V"/>
+                    <path d="M 560 180 L 480 180 L 480 620 L 220 620 L 220 650" class="wire w-3v3" data-signal="3.3V"/>
+                    <path d="M 560 180 L 480 180 L 480 30 L 980 30 L 980 120" class="wire w-3v3" data-signal="3.3V"/>
+                    <path d="M 560 180 L 480 180 L 480 30 L 900 30 L 900 260" class="wire w-3v3" data-signal="3.3V"/>
+                    <path d="M 560 180 L 480 180 L 480 30 L 1020 30 L 1020 480 L 1000 480" class="wire w-3v3" data-signal="3.3V"/>
 
-                    <!-- GND desde ESP32 a periféricos -->
-                    <path d="M 580 220 L 470 220 L 470 100 L 250 100 L 250 120" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 580 220 L 470 220 L 470 390 L 250 390 L 250 430" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 580 220 L 470 220 L 470 610 L 250 610 L 250 650" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 580 220 L 470 220 L 470 140 L 1010 140 L 1010 120" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 580 220 L 470 220 L 470 360 L 900 360" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 580 220 L 470 220 L 470 500 L 950 500 L 950 520" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 580 220 L 470 220 L 470 500 L 960 500 L 960 480" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 560 220 L 470 220 L 470 100 L 250 100 L 250 120" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 560 220 L 470 220 L 470 390 L 250 390 L 250 430" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 560 220 L 470 220 L 470 610 L 250 610 L 250 650" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 560 220 L 470 220 L 470 140 L 1010 140 L 1010 120" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 560 220 L 470 220 L 470 360 L 900 360" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 560 220 L 470 220 L 470 500 L 950 500 L 950 520" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 560 220 L 470 220 L 470 500 L 960 500 L 960 480" class="wire w-gnd" data-signal="GND"/>
 
-                    <!-- I2C -->
-                    <path d="M 580 260 L 460 260 L 460 100 L 280 100 L 280 120" class="wire w-i2c" data-signal="SDA"/>
+                    <path d="M 560 260 L 460 260 L 460 100 L 280 100 L 280 120" class="wire w-i2c" data-signal="SDA"/>
                     <path d="M 460 100 L 460 630 L 280 630 L 280 650" class="wire w-i2c" data-signal="SDA"/>
-                    <path d="M 580 300 L 450 300 L 450 90 L 310 90 L 310 120" class="wire w-i2c" data-signal="SCL"/>
+                    <path d="M 560 300 L 450 300 L 450 90 L 310 90 L 310 120" class="wire w-i2c" data-signal="SCL"/>
                     <path d="M 450 90 L 450 640 L 310 640 L 310 650" class="wire w-i2c" data-signal="SCL"/>
 
-                    <!-- Control NFC RST (GPIO5) - ya conectado -->
-                    <path d="M 580 340 L 430 340 L 430 630 L 340 630 L 340 650" class="wire w-ctrl" data-signal="NFC_RST"/>
+                    <path d="M 560 340 L 430 340 L 430 630 L 340 630 L 340 650" class="wire w-ctrl" data-signal="NFC_RST"/>
 
-                    <!-- NUEVO: Control NFC IRQ (GPIO21) - conectado al pin IRQ del PN532 -->
-                    <path d="M 580 500 L 870 500 L 870 700 L 370 700 L 370 650 L 370 695" class="wire w-ctrl" data-signal="NFC_IRQ"/>
+                    <path d="M 560 420 L 420 420 L 420 380 L 310 380 L 310 430" class="wire w-spi" data-signal="MOSI"/>
+                    <path d="M 560 460 L 410 460 L 410 370 L 280 370 L 280 430" class="wire w-spi" data-signal="MISO"/>
+                    <path d="M 560 500 L 400 500 L 400 390 L 340 390 L 340 430" class="wire w-spi" data-signal="SCK"/>
 
-                    <!-- SPI MicroSD -->
-                    <path d="M 580 420 L 420 420 L 420 380 L 310 380 L 310 430" class="wire w-spi" data-signal="MOSI"/>
-                    <path d="M 580 460 L 410 460 L 410 370 L 280 370 L 280 430" class="wire w-spi" data-signal="MISO"/>
-                    <path d="M 580 500 L 400 500 L 400 390 L 340 390 L 340 430" class="wire w-spi" data-signal="SCK"/>
-                    <path d="M 580 420 L 850 420 L 850 50 L 100 50 L 100 350 L 370 350 L 370 430" class="wire w-spi" style="stroke: #e84393;" data-signal="SD_CS"/>
+                    <path d="M 840 260 L 870 260 L 870 140 L 950 140 L 950 120" class="wire w-ctrl" data-signal="JOY_Y"/>
+                    <path d="M 840 300 L 880 300 L 880 150 L 920 150 L 920 120" class="wire w-ctrl" data-signal="JOY_SW"/>
 
-                    <!-- Joystick -->
-                    <path d="M 580 260 L 870 260 L 870 140 L 950 140 L 950 120" class="wire w-ctrl" data-signal="JOY_Y"/>
-                    <path d="M 580 300 L 880 300 L 880 150 L 920 150 L 920 120" class="wire w-ctrl" data-signal="JOY_SW"/>
+                    <path d="M 840 340 L 890 340 L 890 320 L 900 320" class="wire w-ctrl" data-signal="IR_TX"/>
 
-                    <!-- IR TX -->
-                    <path d="M 580 340 L 890 340 L 890 320 L 900 320" class="wire w-ctrl" data-signal="IR_TX"/>
+                    <path d="M 840 380 L 890 380 L 890 490 L 980 490 L 980 520" class="wire w-ctrl" data-signal="SWITCH"/>
 
-                    <!-- Switch sleep -->
-                    <path d="M 580 380 L 890 380 L 890 490 L 980 490 L 980 520" class="wire w-ctrl" data-signal="SWITCH"/>
+                    <path d="M 840 420 L 850 420 L 850 50 L 100 50 L 100 350 L 370 350 L 370 430" class="wire w-spi" style="stroke: #e84393;" data-signal="SD_CS"/>
 
-                    <!-- NUEVO: IR RX DAT (GPIO13) conectado al pin DAT del receptor RS003 -->
-                    <path d="M 580 460 L 920 460 L 920 480 L 920 495" class="wire w-ctrl" data-signal="IR_RX"/>
+                    <path d="M 840 460 L 920 460 L 920 480" class="wire w-ctrl" data-signal="IR_RX"/>
 
-                    <!-- ===== ALIMENTACIÓN PRINCIPAL CON BOOST, DIODO Y CAPACITORES ===== -->
-                    <!-- Batería a TP4056 -->
-                    <path d="M 800 620 L 880 620" class="wire w-pwr" data-signal="BAT_VCC"/>
+                    <path d="M 840 500 L 870 500 L 870 700 L 370 700 L 370 650" class="wire w-ctrl" data-signal="NFC_IRQ"/>
+
+
+                    <path d="M 800 630 L 880 630" class="wire w-pwr" data-signal="BAT_VCC"/>
                     <path d="M 800 660 L 880 660" class="wire w-gnd" data-signal="GND"/>
 
-                    <!-- TP4056 OUT+ a Boost IN+ -->
                     <path d="M 1030 630 L 1100 630" class="wire w-pwr" data-signal="TP_OUT"/>
-                    <!-- TP4056 OUT- a Boost IN- (GND) -->
                     <path d="M 1030 660 L 1100 660" class="wire w-gnd" data-signal="GND"/>
 
-                    <!-- Boost OUT+ a Diodo Ánodo -->
-                    <path d="M 1200 600 L 1260 600" class="wire w-pwr" data-signal="BOOST_OUT"/>
-                    <!-- Boost OUT- a GND -->
-                    <path d="M 1200 660 L 1260 660" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 1200 630 L 1260 630" class="wire w-pwr" data-signal="BOOST_OUT"/>
+                    
+                    <path d="M 1200 660 L 1380 660 L 1380 220 L 840 220" class="wire w-gnd" data-signal="GND"/>
 
-                    <!-- Diodo Cátodo a VIN (nodo principal de 5V) y a ESP32 VIN -->
-                    <path d="M 1320 600 L 1380 600 L 1380 180 L 840 180" class="wire w-vin" data-signal="VIN"/>
-                    <!-- GND desde diodo a ESP32 GND -->
-                    <path d="M 1320 660 L 1380 660 L 1380 220 L 840 220" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 1320 630 L 1380 630 L 1380 180 L 840 180" class="wire w-vin" data-signal="VIN"/>
 
-                    <!-- Capacitor electrolítico 100µF en VIN -->
                     <path d="M 1380 180 L 1380 100 L 1395 100" class="wire w-vin" data-signal="VIN"/>
                     <path d="M 1380 220 L 1455 220 L 1455 100" class="wire w-gnd" data-signal="GND"/>
 
-                    <!-- Capacitor cerámico #1 en VIN -->
                     <path d="M 1380 180 L 1380 90 L 1475 90" class="wire w-vin" data-signal="VIN"/>
                     <path d="M 1380 220 L 1525 220 L 1525 90" class="wire w-gnd" data-signal="GND"/>
 
-                    <!-- Capacitor cerámico #2 en 3.3V -->
-                    <path d="M 520 180 L 520 95" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 570 220 L 570 95" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 560 180 L 520 180 L 520 95" class="wire w-3v3" data-signal="3.3V"/>
+                    <path d="M 560 220 L 570 220 L 570 95" class="wire w-gnd" data-signal="GND"/>
 
-                    <!-- Puntos de unión (junction dots) en las conexiones T -->
                     <circle cx="1380" cy="180" r="4" fill="#e74c3c" stroke="none"/>
                     <circle cx="1380" cy="220" r="4" fill="#27ae60" stroke="none"/>
                     <circle cx="520" cy="180" r="4" fill="#e67e22" stroke="none"/>
                     <circle cx="570" cy="220" r="4" fill="#27ae60" stroke="none"/>
                 </g>
 
-                <!-- ========== COMPONENTES ========== -->
-                <!-- ESP32 -->
                 <g transform="translate(560, 150)" class="component" id="comp-esp32">
                     <rect width="280" height="420" class="component-bg"/>
                     <text x="140" y="30" class="component-label" text-anchor="middle">ESP32-S3</text>
@@ -211,7 +188,6 @@
                     <circle cx="280" cy="350" r="4" class="pin"/> <text x="265" y="354" class="pin-label" text-anchor="end">IO 21 (NFC IRQ)</text>
                 </g>
 
-                <!-- OLED -->
                 <g transform="translate(150, 120)" class="component" id="comp-oled">
                     <rect width="180" height="100" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/>
                     <rect x="10" y="30" width="160" height="60" fill="#2c3e50" rx="3"/>
@@ -222,7 +198,6 @@
                     <circle cx="160" cy="0" r="4" class="pin"/> <text x="160" y="-10" class="pin-label-dark" text-anchor="middle">SCL</text>
                 </g>
 
-                <!-- MicroSD -->
                 <g transform="translate(150, 430)" class="component" id="comp-sd">
                     <rect width="250" height="80" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/>
                     <text x="125" y="45" class="pin-label-dark" text-anchor="middle" font-size="14">MÓDULO MICRO SD</text>
@@ -235,7 +210,6 @@
                     <circle cx="220" cy="0" r="4" class="pin"/> <text x="220" y="-10" class="pin-label-dark" text-anchor="middle" fill="#e84393">CS</text>
                 </g>
 
-                <!-- PN532 -->
                 <g transform="translate(150, 650)" class="component" id="comp-rfid">
                     <rect width="280" height="120" fill="#ecf0f1" stroke="#c0392b" stroke-width="3" rx="5"/>
                     <text x="140" y="65" class="pin-label-dark" text-anchor="middle" font-size="16">MÓDULO NFC PN532</text>
@@ -248,7 +222,6 @@
                     <circle cx="220" cy="0" r="4" class="pin"/> <text x="220" y="-10" class="pin-label-dark" text-anchor="middle" fill="#9b59b6">IRQ(21)</text>
                 </g>
 
-                <!-- Joystick -->
                 <g transform="translate(880, 20)" class="component" id="comp-joystick">
                     <rect width="150" height="100" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/>
                     <circle cx="75" cy="50" r="30" fill="#34495e"/>
@@ -259,7 +232,6 @@
                     <circle cx="130" cy="100" r="4" class="pin"/> <text x="130" y="115" class="pin-label-dark" text-anchor="middle">GND</text>
                 </g>
 
-                <!-- Emisor IR -->
                 <g transform="translate(900, 220)" class="component" id="comp-ir">
                     <rect width="250" height="160" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5" stroke-dasharray="5,5"/>
                     <text x="125" y="25" class="pin-label-dark" text-anchor="middle" font-size="14">CIRCUITO IR (DISCRETO)</text>
@@ -283,7 +255,6 @@
                     <path d="M 0 140 L 130 140 L 130 115" class="circuit-element" stroke-width="1"/>
                 </g>
 
-                <!-- Receptor IR RS003 (con pin DAT en posición correcta) -->
                 <g transform="translate(900, 400)" class="component" id="comp-ir-rx">
                     <rect width="120" height="80" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/>
                     <text x="60" y="25" class="pin-label-dark" text-anchor="middle" font-size="12">RECEPTOR IR</text>
@@ -294,7 +265,6 @@
                     <circle cx="100" cy="80" r="4" class="pin"/> <text x="100" y="70" class="pin-label-dark" text-anchor="middle" fill="#e67e22">3.3V</text>
                 </g>
 
-                <!-- Switch Sleep -->
                 <g transform="translate(930, 520)" class="component" id="comp-switch">
                     <rect width="80" height="50" fill="#ecf0f1" stroke="#34495e" stroke-width="2" rx="5"/>
                     <rect x="20" y="15" width="40" height="20" fill="#e74c3c" rx="10"/>
@@ -304,47 +274,41 @@
                     <circle cx="50" cy="0" r="4" class="pin"/> <text x="50" y="-10" class="pin-label-dark" text-anchor="middle">IO14</text>
                 </g>
 
-                <!-- TP4056 -->
-                <g transform="translate(880, 600)" class="component" id="comp-tp4056">
-                    <rect width="150" height="80" fill="#ecf0f1" stroke="#2980b9" stroke-width="2" rx="5"/>
-                    <rect x="-10" y="25" width="20" height="30" fill="#7f8c8d" rx="2"/>
-                    <text x="75" y="45" class="pin-label-dark" text-anchor="middle" font-size="14">TP4056</text>
-                    <circle cx="0" cy="30" r="4" class="pin"/> <text x="0" y="20" class="pin-label-dark" text-anchor="middle" fill="#e74c3c">OUT+</text>
-                    <circle cx="0" cy="60" r="4" class="pin"/> <text x="0" y="80" class="pin-label-dark" text-anchor="middle">OUT-</text>
-                    <circle cx="150" cy="30" r="4" class="pin"/> <text x="150" y="20" class="pin-label-dark" text-anchor="middle">B+</text>
-                    <circle cx="150" cy="60" r="4" class="pin"/> <text x="150" y="80" class="pin-label-dark" text-anchor="middle">B-</text>
-                </g>
-
-                <!-- Boost Converter -->
-                <g transform="translate(1100, 600)" class="component" id="comp-boost">
-                    <rect width="100" height="80" fill="#ecf0f1" stroke="#e67e22" stroke-width="2" rx="5"/>
-                    <text x="50" y="25" class="pin-label-dark" text-anchor="middle" font-size="12">BOOST</text>
-                    <text x="50" y="40" class="pin-label-dark" text-anchor="middle" font-size="10">MT3608</text>
-                    <text x="50" y="55" class="pin-label-dark" text-anchor="middle" font-size="9">3.7V → 5V</text>
-                    <circle cx="0" cy="30" r="4" class="pin"/> <text x="-15" y="34" class="pin-label-dark" text-anchor="end" fill="#e74c3c">IN+</text>
-                    <circle cx="0" cy="60" r="4" class="pin"/> <text x="-15" y="64" class="pin-label-dark" text-anchor="end">IN-</text>
-                    <circle cx="100" cy="30" r="4" class="pin"/> <text x="115" y="34" class="pin-label-dark" fill="#e74c3c">OUT+</text>
-                    <circle cx="100" cy="60" r="4" class="pin"/> <text x="115" y="64" class="pin-label-dark">OUT-</text>
-                </g>
-
-                <!-- Diodo Schottky -->
-                <g transform="translate(1260, 580)" class="component" id="comp-diodo">
-                    <rect width="60" height="50" fill="#ecf0f1" stroke="#9b59b6" stroke-width="2" rx="5"/>
-                    <text x="30" y="15" class="pin-label-dark" text-anchor="middle" font-size="10">1N5819</text>
-                    <use href="#diode-symbol" x="15" y="28" width="30" height="24"/>
-                    <circle cx="0" cy="35" r="4" class="pin"/> <text x="-15" y="39" class="pin-label-dark" text-anchor="end">Ánodo</text>
-                    <circle cx="60" cy="35" r="4" class="pin"/> <text x="75" y="39" class="pin-label-dark">Cátodo</text>
-                </g>
-
-                <!-- Batería -->
-                <g transform="translate(700, 620)" class="component" id="comp-battery">
+                <g transform="translate(700, 600)" class="component" id="comp-battery">
                     <rect width="100" height="60" fill="#f1c40f" stroke="#e67e22" stroke-width="2" rx="5"/>
                     <text x="50" y="35" class="pin-label-dark" text-anchor="middle">BATERÍA 3.7V</text>
-                    <circle cx="0" cy="20" r="4" class="pin"/> <text x="15" y="25" class="pin-label-dark">VCC</text>
-                    <circle cx="0" cy="40" r="4" class="pin"/> <text x="15" y="45" class="pin-label-dark">GND</text>
+                    <circle cx="100" cy="30" r="4" class="pin"/> <text x="85" y="35" class="pin-label-dark" text-anchor="end">VCC</text>
+                    <circle cx="100" cy="60" r="4" class="pin"/> <text x="85" y="65" class="pin-label-dark" text-anchor="end">GND</text>
                 </g>
 
-                <!-- Capacitor electrolítico -->
+                <g transform="translate(880, 600)" class="component" id="comp-tp4056">
+                    <rect width="150" height="80" fill="#ecf0f1" stroke="#2980b9" stroke-width="2" rx="5"/>
+                    <rect x="65" y="25" width="20" height="30" fill="#7f8c8d" rx="2"/>
+                    <text x="75" y="45" class="pin-label-dark" text-anchor="middle" font-size="14">TP4056</text>
+                    <circle cx="0" cy="30" r="4" class="pin"/> <text x="15" y="34" class="pin-label-dark" fill="#e74c3c">B+</text>
+                    <circle cx="0" cy="60" r="4" class="pin"/> <text x="15" y="64" class="pin-label-dark">B-</text>
+                    <circle cx="150" cy="30" r="4" class="pin"/> <text x="135" y="34" class="pin-label-dark" text-anchor="end" fill="#e74c3c">OUT+</text>
+                    <circle cx="150" cy="60" r="4" class="pin"/> <text x="135" y="64" class="pin-label-dark" text-anchor="end">OUT-</text>
+                </g>
+
+                <g transform="translate(1100, 600)" class="component" id="comp-boost">
+                    <rect width="100" height="80" fill="#ecf0f1" stroke="#e67e22" stroke-width="2" rx="5"/>
+                    <text x="50" y="20" class="pin-label-dark" text-anchor="middle" font-size="12">BOOST</text>
+                    <text x="50" y="55" class="pin-label-dark" text-anchor="middle" font-size="9">3.7V → 5V</text>
+                    <circle cx="0" cy="30" r="4" class="pin"/> <text x="15" y="34" class="pin-label-dark" fill="#e74c3c">IN+</text>
+                    <circle cx="0" cy="60" r="4" class="pin"/> <text x="15" y="64" class="pin-label-dark">IN-</text>
+                    <circle cx="100" cy="30" r="4" class="pin"/> <text x="85" y="34" class="pin-label-dark" text-anchor="end" fill="#e74c3c">OUT+</text>
+                    <circle cx="100" cy="60" r="4" class="pin"/> <text x="85" y="64" class="pin-label-dark" text-anchor="end">OUT-</text>
+                </g>
+
+                <g transform="translate(1260, 595)" class="component" id="comp-diodo">
+                    <rect width="60" height="50" fill="#ecf0f1" stroke="#9b59b6" stroke-width="2" rx="5"/>
+                    <text x="30" y="15" class="pin-label-dark" text-anchor="middle" font-size="10">1N5819</text>
+                    <use href="#diode-symbol" x="15" y="35" width="30" height="24"/>
+                    <circle cx="0" cy="35" r="4" class="pin"/> <text x="0" y="55" class="pin-label-dark" text-anchor="middle">Ánodo</text>
+                    <circle cx="60" cy="35" r="4" class="pin"/> <text x="60" y="55" class="pin-label-dark" text-anchor="middle">Cátodo</text>
+                </g>
+
                 <g transform="translate(1395, 50)" class="component" id="cap-electro">
                     <rect width="60" height="70" fill="#ecf0f1" stroke="#2980b9" stroke-width="2" rx="5"/>
                     <text x="30" y="15" class="pin-label-dark" text-anchor="middle" font-size="10">100µF</text>
@@ -354,7 +318,6 @@
                     <circle cx="60" cy="50" r="4" class="pin"/> <text x="75" y="54" class="pin-label-dark">- (GND)</text>
                 </g>
 
-                <!-- Cerámico #1 en VIN -->
                 <g transform="translate(1475, 55)" class="component" id="cap-cer1">
                     <rect width="50" height="50" fill="#ecf0f1" stroke="#e67e22" stroke-width="1.5" rx="5"/>
                     <text x="25" y="15" class="pin-label-dark" text-anchor="middle" font-size="9">0.1µF</text>
@@ -363,7 +326,6 @@
                     <circle cx="50" cy="35" r="4" class="pin"/> <text x="65" y="39" class="pin-label-dark">GND</text>
                 </g>
 
-                <!-- Cerámico #2 en 3.3V -->
                 <g transform="translate(520, 60)" class="component" id="cap-cer2">
                     <rect width="50" height="50" fill="#ecf0f1" stroke="#e67e22" stroke-width="1.5" rx="5"/>
                     <text x="25" y="15" class="pin-label-dark" text-anchor="middle" font-size="9">0.1µF</text>
@@ -374,7 +336,6 @@
             </svg>
         </div>
 
-        <!-- Tabla de conexiones (actualizada con IRQ y DAT) -->
         <div class="legend">
             <h3>📋 Tabla de Conexiones Detallada</h3>
             <div style="overflow-x: auto;">
@@ -393,323 +354,155 @@
                 <div class="legend-item"><div class="legend-color" style="background:#27ae60"></div><span>GND (tierra común)</span></div>
                 <div class="legend-item"><div class="legend-color" style="background:#f1c40f"></div><span>I2C (SDA/SCL)</span></div>
                 <div class="legend-item"><div class="legend-color" style="background:#3498db"></div><span>SPI (MicroSD)</span></div>
-                <div class="legend-item"><div class="legend-color" style="background:#9b59b6"></div><span>Control (IR, RST, IRQ)</span></div>
-                <div class="legend-item"><div class="legend-color" style="background:#c0392b"></div><span>Potencia bruta (batería, boost)</span></div>
+                <div class="legend-item"><div class="legend-color" style="background:#9b59b6"></div><span>Control (IR, RST, IRQ, Joystick)</span></div>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // Datos para el panel de información
     const componentData = {
-        'comp-esp32': { title: 'ESP32-S3', details: [{ label: 'Voltaje lógico', value: '3.3V' }, { label: 'Alimentación VIN', value: '5V (después del diodo)' }] },
-        'comp-oled': { title: 'Pantalla OLED 0.96" I2C', details: [{ label: 'Pines', value: 'SDA=25, SCL=26' }] },
-        'comp-sd': { title: 'Módulo MicroSD', details: [{ label: 'SPI', value: 'CS=15, MOSI=23, MISO=19, SCK=18' }] },
-        'comp-rfid': { title: 'PN532 NFC (I2C)', details: [{ label: 'RST', value: 'GPIO5' }, { label: 'IRQ', value: 'GPIO21' }] },
-        'comp-joystick': { title: 'Joystick analógico', details: [{ label: 'Eje Y', value: 'GPIO35' }, { label: 'Botón', value: 'GPIO32' }] },
-        'comp-ir': { title: 'Emisor IR', details: [{ label: 'Base transistor', value: 'GPIO4 con R=1kΩ' }] },
-        'comp-ir-rx': { title: 'Receptor IR RS003', details: [{ label: 'Señal DAT', value: 'GPIO13' }] },
+        'comp-esp32': { title: 'ESP32-S3', details: [{ label: 'Voltaje', value: '3.3V lógica, VIN 5V' }] },
+        'comp-oled': { title: 'OLED 0.96"', details: [{ label: 'Protocolo', value: 'I2C' }] },
+        'comp-sd': { title: 'MicroSD', details: [{ label: 'SPI', value: 'CS=15, MOSI=23, MISO=19, SCK=18' }] },
+        'comp-rfid': { title: 'PN532 NFC', details: [{ label: 'Modo', value: 'I2C' }, {label: 'IRQ', value: 'GPIO21'}] },
+        'comp-joystick': { title: 'Joystick', details: [{ label: 'Eje Y', value: 'GPIO35' }, { label: 'Botón', value: 'GPIO32' }] },
+        'comp-ir': { title: 'Emisor IR', details: [{ label: 'Transistor', value: '2N2222 + R 1kΩ' }] },
+        'comp-ir-rx': { title: 'Receptor IR RS003', details: [{ label: 'Salida DAT', value: 'GPIO13' }] },
         'comp-tp4056': { title: 'Cargador TP4056', details: [{ label: 'Batería', value: 'LiPo 3.7V' }] },
         'comp-boost': { title: 'Boost MT3608', details: [{ label: 'Entrada', value: '3.7-4.2V' }, { label: 'Salida', value: '5V' }] },
         'comp-diodo': { title: 'Diodo Schottky 1N5819', details: [{ label: 'Protección', value: 'Anti-retorno' }] },
         'comp-battery': { title: 'Batería LiPo', details: [{ label: 'Voltaje', value: '3.7V' }] },
-        'cap-electro': { title: 'Capacitor electrolítico', details: [{ label: 'Valor', value: '100µF / 16V' }, { label: 'Función', value: 'Filtro para picos de corriente WiFi/BT' }] },
-        'cap-cer1': { title: 'Capacitor cerámico #1', details: [{ label: 'Valor', value: '0.1µF' }, { label: 'Ubicación', value: 'Entre VIN y GND' }, { label: 'Función', value: 'Filtro de alta frecuencia en la entrada 5V' }] },
-        'cap-cer2': { title: 'Capacitor cerámico #2', details: [{ label: 'Valor', value: '0.1µF' }, { label: 'Ubicación', value: 'Entre 3.3V y GND' }, { label: 'Función', value: 'Desacoplo local para la lógica del ESP32 y periféricos' }] }
+        'cap-electro': { title: 'Capacitor electrolítico', details: [{ label: 'Valor', value: '100µF 16V' }] },
+        'cap-cer1': { title: 'Capacitor cerámico', details: [{ label: 'Valor', value: '0.1µF' }] },
+        'cap-cer2': { title: 'Capacitor cerámico', details: [{ label: 'Valor', value: '0.1µF' }] }
     };
 
     const connections = [
-        { module: 'Batería', mPin: 'VCC', ePin: 'TP4056 B+', notes: '3.7V LiPo' },
-        { module: 'TP4056', mPin: 'OUT+', ePin: 'Boost IN+', notes: '3.7V-4.2V' },
-        { module: 'Boost', mPin: 'OUT+', ePin: 'Diodo Ánodo', notes: '5V' },
-        { module: 'Diodo', mPin: 'Cátodo', ePin: 'ESP32 VIN', notes: 'Protección anti-retorno' },
-        { module: 'Cap. electrolítico', mPin: '+', ePin: 'VIN (cátodo diodo)', notes: '100µF / 16V - picos WiFi' },
-        { module: 'Cap. cerámico #1', mPin: '---', ePin: 'VIN y GND', notes: '0.1µF - filtro ruido boost' },
-        { module: 'Cap. cerámico #2', mPin: '---', ePin: '3.3V y GND', notes: '0.1µF - desacoplo lógica' },
-        { module: 'OLED', mPin: 'SDA/SCL', ePin: 'GPIO25/26', notes: 'I2C compartido' },
-        { module: 'PN532', mPin: 'SDA/SCL', ePin: 'GPIO25/26', notes: 'I2C compartido' },
-        { module: 'PN532', mPin: 'RST', ePin: 'GPIO5', notes: 'Reset' },
-        { module: 'PN532', mPin: 'IRQ', ePin: 'GPIO21', notes: 'Interrupción' },  // <-- Corregido
-        { module: 'MicroSD', mPin: 'CS', ePin: 'GPIO15', notes: 'SPI' },
-        { module: 'MicroSD', mPin: 'MOSI/MISO/SCK', ePin: 'GPIO23/19/18', notes: '' },
-        { module: 'Joystick', mPin: 'VRy/SW', ePin: 'GPIO35/32', notes: '' },
-        { module: 'Emisor IR', mPin: 'Base', ePin: 'GPIO4', notes: 'Resistencia 1kΩ' },
-        { module: 'Receptor IR', mPin: 'DAT', ePin: 'GPIO13', notes: 'Señal' },   // <-- Corregido
-        { module: 'Switch Sleep', mPin: '---', ePin: 'GPIO14 y GND', notes: 'Wake up' }
+        { module: 'Batería', mPin: 'VCC / GND', ePin: 'TP4056 B+ / B-', notes: 'Alimentación primaria' },
+        { module: 'TP4056', mPin: 'OUT+ / OUT-', ePin: 'Boost IN+ / IN-', notes: 'Voltaje protegido (3.7V)' },
+        { module: 'Boost', mPin: 'OUT+', ePin: 'Diodo (Ánodo)', notes: 'Elevado a 5V' },
+        { module: 'Diodo', mPin: 'Cátodo', ePin: 'ESP32 VIN', notes: 'Protege USB' },
+        { module: 'OLED / PN532', mPin: 'SDA / SCL', ePin: 'GPIO 25 / 26', notes: 'Bus I2C' },
+        { module: 'MicroSD', mPin: 'SPI (MISO, MOSI, SCK, CS)', ePin: '19, 23, 18, 15', notes: 'Bus SPI' },
+        { module: 'PN532', mPin: 'RST / IRQ', ePin: 'GPIO 5 / 21', notes: 'Control NFC' },
+        { module: 'Joystick', mPin: 'VRy / SW', ePin: 'GPIO 35 / 32', notes: 'Entradas de menú' },
+        { module: 'IR', mPin: 'TX (Transistor) / RX (DAT)', ePin: 'GPIO 4 / 13', notes: 'Infrarrojos' }
     ];
 
     const tbody = document.getElementById('connectionTable');
     connections.forEach(conn => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${conn.module}</td><td style="font-family:monospace">${conn.mPin}</td><td style="font-weight:bold;color:#2a5298">${conn.ePin}</td><td style="color:#6c757d">${conn.notes}</td>`;
+        tr.innerHTML = `<td>${conn.module}</td><td style="font-family:monospace">${conn.mPin}</td><td style="font-weight:bold;color:#2a5298">${conn.ePin}</td><td>${conn.notes}</td>`;
         tbody.appendChild(tr);
     });
 
-    // -------------------------------------------------------------
-    // ALGORITMO DE ARRASTRE CON CABLES DINÁMICOS (REESCRITO)
-    // Usa posiciones reales de pines en lugar de bbox hit-testing
-    // -------------------------------------------------------------
-    const svgEl = document.getElementById('schematic');
-    let draggedComponent = null;
-    let dragStartPoint = null;
-    let componentStartPos = null;
-    const componentsData = {};
-    const wiresData = [];
+    const svg = document.getElementById('schematic');
+    let dragged = null, dragStart = null, elemStart = null;
+    const compsPos = {}, wires = [];
 
-    function initDynamicWires() {
-        // Paso 1: Registrar cada componente con su posición y pines reales
+    function initDrag() {
         document.querySelectorAll('.component').forEach(comp => {
             let tx = 0, ty = 0;
-            const transformList = comp.transform.baseVal;
-            if (transformList.length > 0) {
-                const transform = transformList.getItem(0);
-                tx = transform.matrix.e;
-                ty = transform.matrix.f;
-            }
-
-            // Extraer posiciones globales de todos los pines (circle.pin)
-            // Posición global = translate del componente + (cx, cy) local del pin
-            const pins = [];
-            comp.querySelectorAll('.pin').forEach(pin => {
-                const cx = parseFloat(pin.getAttribute('cx')) || 0;
-                const cy = parseFloat(pin.getAttribute('cy')) || 0;
-                pins.push({ gx: tx + cx, gy: ty + cy });
-            });
-
-            componentsData[comp.id] = {
-                id: comp.id,
-                tx: tx,
-                ty: ty,
-                pins: pins
-            };
+            if (comp.transform.baseVal.length) { let t = comp.transform.baseVal.getItem(0); tx = t.matrix.e; ty = t.matrix.f; }
+            const bbox = comp.getBBox();
+            compsPos[comp.id] = { id: comp.id, x: bbox.x + tx, y: bbox.y + ty, w: bbox.width, h: bbox.height, tx, ty };
         });
-
-        // Paso 2: Para cada cable, vincular extremos al componente
-        // cuyo pin esté más cercano (radio de 30px)
-        function findClosestPinComponent(x, y) {
-            let bestComp = null;
-            let bestDist = 30; // radio máximo de conexión en px SVG
-            for (const key in componentsData) {
-                const comp = componentsData[key];
-                for (const pin of comp.pins) {
-                    const d = Math.hypot(x - pin.gx, y - pin.gy);
-                    if (d < bestDist) {
-                        bestDist = d;
-                        bestComp = key;
-                    }
-                }
-            }
-            return bestComp;
-        }
-
-        document.querySelectorAll('.wire').forEach(wire => {
-            const d = wire.getAttribute('d');
+        document.querySelectorAll('.wire').forEach(w => {
+            const d = w.getAttribute('d');
             if (!d) return;
-            const segments = d.trim().split(/(?=[ML])/i);
-            const points = [];
-            segments.forEach(seg => {
-                seg = seg.trim();
-                if (!seg) return;
-                const type = seg.charAt(0);
-                const coords = seg.substring(1).trim().split(/[\s,]+/);
-                if (coords.length < 2) return;
-                points.push({
-                    type: type,
-                    x: parseFloat(coords[0]),
-                    y: parseFloat(coords[1]),
-                    origX: parseFloat(coords[0]),
-                    origY: parseFloat(coords[1]),
-                    boundComp: null
-                });
-            });
-            if (points.length < 2) return;
-
-            // Vincular SOLO el primer y último punto al pin más cercano
-            // Los puntos intermedios son de enrutamiento y permanecen fijos
-            const firstPt = points[0];
-            const lastPt = points[points.length - 1];
-
-            firstPt.boundComp = findClosestPinComponent(firstPt.origX, firstPt.origY);
-            lastPt.boundComp = findClosestPinComponent(lastPt.origX, lastPt.origY);
-
-            wiresData.push({ element: wire, points: points });
+            const points = d.split(/(?=[ML])/i).map(seg => {
+                const type = seg[0];
+                const coords = seg.slice(1).trim().split(/[\s,]+/);
+                if (coords.length < 2) return null;
+                return { type, x: parseFloat(coords[0]), y: parseFloat(coords[1]), ox: parseFloat(coords[0]), oy: parseFloat(coords[1]), bind: null };
+            }).filter(p => p);
+            if (points.length) wires.push({ el: w, points });
         });
     }
+    setTimeout(initDrag, 100);
 
-    setTimeout(initDynamicWires, 100);
-
-    function getMousePosition(evt) {
-        const CTM = svgEl.getScreenCTM();
-        const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
-        const clientY = evt.touches ? evt.touches[0].clientY : evt.clientY;
-        return { x: (clientX - CTM.e) / CTM.a, y: (clientY - CTM.f) / CTM.d };
+    function getMouse(evt) {
+        const CTM = svg.getScreenCTM();
+        const cx = evt.touches ? evt.touches[0].clientX : evt.clientX;
+        const cy = evt.touches ? evt.touches[0].clientY : evt.clientY;
+        return { x: (cx - CTM.e) / CTM.a, y: (cy - CTM.f) / CTM.d };
     }
 
     function startDrag(evt) {
         const target = evt.target.closest('.component');
-        if (target) {
-            draggedComponent = target;
-            dragStartPoint = getMousePosition(evt);
-            const transformList = draggedComponent.transform.baseVal;
-            if (transformList.length === 0) {
-                const translate = svgEl.createSVGTransform();
-                translate.setTranslate(0, 0);
-                transformList.insertItemBefore(translate, 0);
-            }
-            const transform = transformList.getItem(0);
-            componentStartPos = { x: transform.matrix.e, y: transform.matrix.f };
-            draggedComponent.parentNode.appendChild(draggedComponent);
-        }
+        if (!target) return;
+        dragged = target;
+        dragStart = getMouse(evt);
+        const t = dragged.transform.baseVal;
+        if (!t.length) { const tr = svg.createSVGTransform(); tr.setTranslate(0,0); t.insertItemBefore(tr,0); }
+        const m = t.getItem(0).matrix;
+        elemStart = { x: m.e, y: m.f };
+        dragged.parentNode.appendChild(dragged);
     }
 
     function onDrag(evt) {
-        if (draggedComponent && dragStartPoint) {
-            evt.preventDefault();
-            const pt = getMousePosition(evt);
-            const dx = pt.x - dragStartPoint.x;
-            const dy = pt.y - dragStartPoint.y;
-            const transform = draggedComponent.transform.baseVal.getItem(0);
-            transform.setTranslate(componentStartPos.x + dx, componentStartPos.y + dy);
-
-            if (componentsData[draggedComponent.id]) {
-                const orig = componentsData[draggedComponent.id];
-                const totalDx = (componentStartPos.x + dx) - orig.tx;
-                const totalDy = (componentStartPos.y + dy) - orig.ty;
-
-                wiresData.forEach(wire => {
-                    let changed = false;
-                    wire.points.forEach(point => {
-                        if (point.boundComp === draggedComponent.id) {
-                            point.x = point.origX + totalDx;
-                            point.y = point.origY + totalDy;
-                            changed = true;
-                        }
-                    });
-                    if (changed) {
-                        const newD = wire.points.map(p => `${p.type} ${p.x} ${p.y}`).join(' ');
-                        wire.element.setAttribute('d', newD);
-                    }
+        if (!dragged) return;
+        evt.preventDefault();
+        const pt = getMouse(evt);
+        const dx = pt.x - dragStart.x, dy = pt.y - dragStart.y;
+        const tr = dragged.transform.baseVal.getItem(0);
+        tr.setTranslate(elemStart.x + dx, elemStart.y + dy);
+        if (compsPos[dragged.id]) {
+            const orig = compsPos[dragged.id];
+            const totalX = (elemStart.x + dx) - orig.tx, totalY = (elemStart.y + dy) - orig.ty;
+            wires.forEach(w => {
+                let changed = false;
+                w.points.forEach(p => {
+                    if (p.bind === dragged.id) { p.x = p.ox + totalX; p.y = p.oy + totalY; changed = true; }
                 });
-            }
+                if (changed) w.el.setAttribute('d', w.points.map(p => `${p.type} ${p.x} ${p.y}`).join(' '));
+            });
         }
     }
 
-    function endDrag() {
-        draggedComponent = null;
-        dragStartPoint = null;
-    }
-
-    svgEl.addEventListener('mousedown', startDrag);
-    svgEl.addEventListener('mousemove', onDrag);
-    svgEl.addEventListener('mouseup', endDrag);
-    svgEl.addEventListener('mouseleave', endDrag);
-    svgEl.addEventListener('touchstart', startDrag, { passive: false });
-    svgEl.addEventListener('touchmove', onDrag, { passive: false });
-    svgEl.addEventListener('touchend', endDrag);
+    function endDrag() { dragged = null; }
+    svg.addEventListener('mousedown', startDrag); svg.addEventListener('mousemove', onDrag); svg.addEventListener('mouseup', endDrag);
+    svg.addEventListener('touchstart', startDrag, {passive:false}); svg.addEventListener('touchmove', onDrag, {passive:false}); svg.addEventListener('touchend', endDrag);
 
     window.resetLayout = function() {
-        for (const id in componentsData) {
-            const comp = document.getElementById(id);
-            if (comp && comp.transform.baseVal.length) {
-                comp.transform.baseVal.getItem(0).setTranslate(componentsData[id].tx, componentsData[id].ty);
-            }
-        }
-        wiresData.forEach(wire => {
-            wire.points.forEach(p => { p.x = p.origX; p.y = p.origY; });
-            const newD = wire.points.map(p => `${p.type} ${p.x} ${p.y}`).join(' ');
-            wire.element.setAttribute('d', newD);
-        });
+        document.querySelectorAll('.component').forEach(c => { if (compsPos[c.id]) c.transform.baseVal.getItem(0).setTranslate(compsPos[c.id].tx, compsPos[c.id].ty); });
+        wires.forEach(w => { w.points.forEach(p => { p.x = p.ox; p.y = p.oy; }); w.el.setAttribute('d', w.points.map(p => `${p.type} ${p.x} ${p.y}`).join(' ')); });
     };
 
-    // Panel de información
-    const infoPanelDiv = document.getElementById('infoPanel');
-    document.querySelectorAll('.component').forEach(comp => {
-        comp.addEventListener('click', function(e) {
+    const infoPanel = document.getElementById('infoPanel');
+    document.querySelectorAll('.component').forEach(c => {
+        c.addEventListener('click', (e) => {
             e.stopPropagation();
-            document.querySelectorAll('.component').forEach(c => c.classList.remove('selected'));
-            this.classList.add('selected');
-            const data = componentData[this.id];
-            if (data) {
-                let detailsHtml = data.details.map(d => `<tr><th>${d.label}</th><td>${d.value}</td></tr>`).join('');
-                infoPanelDiv.innerHTML = `<h3>ℹ️ ${data.title}</h3><table>${detailsHtml}</table>`;
-                infoPanelDiv.classList.add('active');
-            } else {
-                infoPanelDiv.innerHTML = `<h3>ℹ️ ${this.id}</h3><p>Información no disponible.</p>`;
-                infoPanelDiv.classList.add('active');
-            }
+            document.querySelectorAll('.component').forEach(c2 => c2.classList.remove('selected'));
+            c.classList.add('selected');
+            const data = componentData[c.id];
+            if (data) infoPanel.innerHTML = `<h3>ℹ️ ${data.title}</h3><table>${data.details.map(d => `<tr><th>${d.label}</th><td>${d.value}</td></tr>`).join('')}</table>`;
+            infoPanel.classList.add('active');
         });
     });
+    document.addEventListener('click', (e) => { if (!e.target.closest('.component') && !e.target.closest('.info-panel')) { document.querySelectorAll('.component').forEach(c => c.classList.remove('selected')); infoPanel.classList.remove('active'); } });
 
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.component') && !e.target.closest('.info-panel')) {
-            document.querySelectorAll('.component').forEach(c => c.classList.remove('selected'));
-            infoPanelDiv.classList.remove('active');
-        }
+    document.querySelectorAll('.wire').forEach(w => {
+        w.addEventListener('mouseenter', function() {
+            const sig = this.getAttribute('data-signal');
+            if (sig) document.querySelectorAll(`.wire[data-signal="${sig}"]`).forEach(w2 => w2.classList.add('highlight'));
+        });
+        w.addEventListener('mouseleave', function() { document.querySelectorAll('.wire.highlight').forEach(w2 => w2.classList.remove('highlight')); });
     });
 
-    // Resaltado de cables
-    document.querySelectorAll('.wire').forEach(wire => {
-        wire.addEventListener('mouseenter', function() {
-            const signal = this.getAttribute('data-signal');
-            if (signal) {
-                document.querySelectorAll(`.wire[data-signal="${signal}"]`).forEach(w => w.classList.add('highlight'));
-            }
-        });
-        wire.addEventListener('mouseleave', function() {
-            document.querySelectorAll('.wire.highlight').forEach(w => w.classList.remove('highlight'));
-        });
+    document.getElementById('moduleSelect').addEventListener('change', (e) => {
+        const val = e.target.value;
+        const all = document.querySelectorAll('.component');
+        if (val === 'all') { all.forEach(c => c.style.opacity = '1'); wires.forEach(w => w.el.style.opacity = '1'); return; }
+        const groups = { power: ['comp-battery','comp-tp4056','comp-boost','comp-diodo','cap-electro','cap-cer1','comp-esp32'], display: ['comp-oled','comp-joystick','comp-esp32'], rfid: ['comp-rfid','comp-esp32'], ir: ['comp-ir','comp-ir-rx','comp-esp32'], sd: ['comp-sd','comp-esp32'] };
+        const active = groups[val] || [];
+        all.forEach(c => c.style.opacity = active.includes(c.id) ? '1' : '0.15');
+        wires.forEach(w => { w.el.style.opacity = w.points.some(p => active.includes(p.bind)) ? '1' : '0.1'; });
     });
 
-    // Filtrado por módulo
-    document.getElementById('moduleSelect').addEventListener('change', function(e) {
-        const selected = e.target.value;
-        const allComps = document.querySelectorAll('.component');
-        if (selected === 'all') {
-            allComps.forEach(c => c.style.opacity = '1');
-            wiresData.forEach(wire => wire.element.style.opacity = '1');
-            return;
-        }
-        const moduleMap = {
-            'power': ['comp-battery', 'comp-tp4056', 'comp-boost', 'comp-diodo', 'cap-electro', 'cap-cer1', 'cap-cer2', 'comp-esp32'],
-            'display': ['comp-oled', 'comp-joystick', 'comp-esp32'],
-            'rfid': ['comp-rfid', 'comp-esp32'],
-            'ir': ['comp-ir', 'comp-ir-rx', 'comp-esp32'],
-            'sd': ['comp-sd', 'comp-esp32']
-        };
-        const activeIds = moduleMap[selected] || [];
-        const primaryTargets = activeIds.filter(id => id !== 'comp-esp32');
-        allComps.forEach(c => {
-            c.style.opacity = activeIds.includes(c.id) ? '1' : '0.15';
-        });
-        wiresData.forEach(wire => {
-            const isRelevant = wire.points.some(p => primaryTargets.includes(p.boundComp));
-            wire.element.style.opacity = isRelevant ? '1' : '0.1';
-        });
-    });
-
-    window.downloadSchematic = function() {
-        resetLayout();
-        const serializer = new XMLSerializer();
-        let svgStr = serializer.serializeToString(svgEl);
-        if (!svgStr.includes('xmlns="http://www.w3.org/2000/svg"')) {
-            svgStr = svgStr.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
-        }
-        const blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'FLIPPER_CORREGIDO_IRQ_RX.svg';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    };
-
-    window.printSchematic = function() {
-        resetLayout();
-        window.print();
-    };
+    window.downloadSchematic = function() { resetLayout(); const ser = new XMLSerializer(); let str = ser.serializeToString(svg); if (!str.includes('xmlns')) str = str.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"'); const blob = new Blob([str], {type: 'image/svg+xml'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'FLIPPER_ESQUEMATICO.svg'; a.click(); URL.revokeObjectURL(a.href); };
+    window.printSchematic = function() { resetLayout(); window.print(); };
 </script>
 </body>
 </html>
