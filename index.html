@@ -329,19 +329,7 @@
             </svg>
         </div>
 
-        <div class="legend" style="background:#fff3cd; border:2px solid #ffc107;">
-            <h3>⚠️ Qué estaba mal y qué se corrigió</h3>
-            <p style="margin-bottom:10px;">El esquemático original usaba números de GPIO típicos del <strong>ESP32 clásico</strong>, pero el chip indicado es un <strong>ESP32-S3</strong>, cuyo mapa de pines es distinto. Por eso las conexiones se veían "mal": varios pines señalados simplemente no existen o están ocupados internamente en el S3.</p>
-            <ul style="margin-left:20px; line-height:1.7;">
-                <li><strong>GPIO25 y GPIO26</strong> (I2C, usados para SDA/SCL): <strong>GPIO22 a GPIO25 no existen en el ESP32-S3</strong>, y GPIO26 está reservado para la memoria flash interna. → Reasignados a <strong>GPIO8 (SDA) y GPIO9 (SCL)</strong>.</li>
-                <li><strong>GPIO23</strong> (MOSI): tampoco existe en el ESP32-S3. → Reasignado a <strong>GPIO11</strong>.</li>
-                <li><strong>GPIO19</strong> (MISO): existe, pero es el pin <strong>USB D-</strong> nativo del ESP32-S3 (GPIO20 es D+); usarlo como MISO puede interferir con la programación/alimentación por USB. → Reasignado a <strong>GPIO12</strong>.</li>
-                <li><strong>GPIO32</strong> (botón del joystick): está en el rango GPIO26-32, reservado para la flash SPI interna en los módulos WROOM. → Reasignado a <strong>GPIO17</strong>.</li>
-                <li><strong>GPIO35</strong> (eje Y del joystick): en módulos con PSRAM Octal (muy comunes, p. ej. variantes N16R8/N8R8) el rango GPIO33-37 queda reservado internamente. Para evitar dudas → Reasignado a <strong>GPIO1</strong> (pin ADC libre).</li>
-            </ul>
-            <p style="margin-top:10px;">Los demás pines (GPIO4, 5, 13, 14, 15, 18, 21) sí son válidos en el ESP32-S3 y se dejaron igual. El recorrido de los cables (quién va a quién) ya era correcto; el problema era solo la numeración de pines.</p>
-            <p style="margin-top:10px; font-size:0.9em;"><strong>Nota:</strong> si en realidad tu placa es un ESP32 "clásico" (no S3), los números originales (25, 26, 23, 19, 32, 35) eran válidos — en ese caso bastaría con corregir la etiqueta del chip a "ESP32" en vez de reasignar pines. Verifica el modelo exacto de tu placa (suele venir impreso o en la página de compra) antes de soldar.</p>
-        </div>
+        
 
         <div class="legend">
             <h3>📋 Tabla de Conexiones Detallada</h3>
