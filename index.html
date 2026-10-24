@@ -47,9 +47,8 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>🔧 FLIPPER-DIY - Esquemático Completo (CORREGIDO)</h1>
-        <p>ESP32 + Boost (3.7V→5V) + Diodo Schottky + Capacitores</p>
-        <p>Todos los módulos conectados perfectamente en sus pines correspondientes</p>
+        <h1>🔧 FLIPPER-DIY - Esquemático Completo</h1>
+        <p>ESP32-S3 + Boost (3.7V→5V) + Diodo Schottky + Capacitores</p>
     </div>
     <div class="controls">
         <div class="control-group">
@@ -99,25 +98,25 @@
                 <rect width="100%" height="100%" fill="url(#grid)" />
 
                 <g id="wiring">
-                    <path d="M 560 180 L 480 180 L 480 80 L 220 80 L 220 120" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 560 180 L 480 180 L 480 400 L 220 400 L 220 430" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 560 180 L 480 180 L 480 620 L 220 620 L 220 650" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 560 180 L 480 180 L 480 30 L 980 30 L 980 120" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 560 180 L 480 180 L 480 30 L 900 30 L 900 260" class="wire w-3v3" data-signal="3.3V"/>
-                    <path d="M 560 180 L 480 180 L 480 30 L 1020 30 L 1020 480 L 1000 480" class="wire w-3v3" data-signal="3.3V"/>
+                    <path d="M 560 180 L 480 180 L 480 80 L 220 80 L 220 120
+                             M 560 180 L 480 180 L 480 400 L 220 400 L 220 430
+                             M 560 180 L 480 180 L 480 620 L 220 620 L 220 650
+                             M 560 180 L 480 180 L 480 30 L 980 30 L 980 120
+                             M 560 180 L 480 180 L 480 30 L 900 30 L 900 260
+                             M 560 180 L 480 180 L 480 30 L 1020 30 L 1020 480 L 1000 480" class="wire w-3v3" data-signal="3.3V"/>
 
-                    <path d="M 560 220 L 470 220 L 470 100 L 250 100 L 250 120" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 560 220 L 470 220 L 470 390 L 250 390 L 250 430" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 560 220 L 470 220 L 470 610 L 250 610 L 250 650" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 560 220 L 470 220 L 470 140 L 1010 140 L 1010 120" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 560 220 L 470 220 L 470 360 L 900 360" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 560 220 L 470 220 L 470 500 L 950 500 L 950 520" class="wire w-gnd" data-signal="GND"/>
-                    <path d="M 560 220 L 470 220 L 470 500 L 960 500 L 960 480" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 560 220 L 470 220 L 470 100 L 250 100 L 250 120
+                             M 560 220 L 470 220 L 470 390 L 250 390 L 250 430
+                             M 560 220 L 470 220 L 470 610 L 250 610 L 250 650
+                             M 560 220 L 470 220 L 470 140 L 1010 140 L 1010 120
+                             M 560 220 L 470 220 L 470 360 L 900 360
+                             M 560 220 L 470 220 L 470 500 L 950 500 L 950 520
+                             M 560 220 L 470 220 L 470 500 L 960 500 L 960 480" class="wire w-gnd" data-signal="GND"/>
 
-                    <path d="M 560 260 L 460 260 L 460 100 L 280 100 L 280 120" class="wire w-i2c" data-signal="SDA"/>
-                    <path d="M 460 100 L 460 630 L 280 630 L 280 650" class="wire w-i2c" data-signal="SDA"/>
-                    <path d="M 560 300 L 450 300 L 450 90 L 310 90 L 310 120" class="wire w-i2c" data-signal="SCL"/>
-                    <path d="M 450 90 L 450 640 L 310 640 L 310 650" class="wire w-i2c" data-signal="SCL"/>
+                    <path d="M 560 260 L 460 260 L 460 100 L 280 100 L 280 120
+                             M 460 100 L 460 630 L 280 630 L 280 650" class="wire w-i2c" data-signal="SDA"/>
+                    <path d="M 560 300 L 450 300 L 450 90 L 310 90 L 310 120
+                             M 450 90 L 450 640 L 310 640 L 310 650" class="wire w-i2c" data-signal="SCL"/>
 
                     <path d="M 560 340 L 430 340 L 430 630 L 340 630 L 340 650" class="wire w-ctrl" data-signal="NFC_RST"/>
 
@@ -147,23 +146,17 @@
 
                     <path d="M 1200 630 L 1260 630" class="wire w-pwr" data-signal="BOOST_OUT"/>
                     
-                    <path d="M 1200 660 L 1380 660 L 1380 220 L 840 220" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 1200 660 L 1380 660 L 1380 220 L 840 220
+                             M 1380 220 L 1455 220 L 1455 100
+                             M 1380 220 L 1525 220 L 1525 90" class="wire w-gnd" data-signal="GND"/>
 
-                    <path d="M 1320 630 L 1380 630 L 1380 180 L 840 180" class="wire w-vin" data-signal="VIN"/>
-
-                    <path d="M 1380 180 L 1380 100 L 1395 100" class="wire w-vin" data-signal="VIN"/>
-                    <path d="M 1380 220 L 1455 220 L 1455 100" class="wire w-gnd" data-signal="GND"/>
-
-                    <path d="M 1380 180 L 1380 90 L 1475 90" class="wire w-vin" data-signal="VIN"/>
-                    <path d="M 1380 220 L 1525 220 L 1525 90" class="wire w-gnd" data-signal="GND"/>
+                    <path d="M 1320 630 L 1380 630 L 1380 180 L 840 180
+                             M 1380 180 L 1380 100 L 1395 100
+                             M 1380 180 L 1380 90 L 1475 90" class="wire w-vin" data-signal="VIN"/>
 
                     <path d="M 560 180 L 520 180 L 520 95" class="wire w-3v3" data-signal="3.3V"/>
                     <path d="M 560 220 L 570 220 L 570 95" class="wire w-gnd" data-signal="GND"/>
 
-                    <circle cx="1380" cy="180" r="4" fill="#e74c3c" stroke="none"/>
-                    <circle cx="1380" cy="220" r="4" fill="#27ae60" stroke="none"/>
-                    <circle cx="520" cy="180" r="4" fill="#e67e22" stroke="none"/>
-                    <circle cx="570" cy="220" r="4" fill="#27ae60" stroke="none"/>
                 </g>
 
                 <g transform="translate(560, 150)" class="component" id="comp-esp32">
@@ -171,16 +164,16 @@
                     <text x="140" y="30" class="component-label" text-anchor="middle">ESP32-S3</text>
                     <circle cx="0" cy="30" r="4" class="pin"/> <text x="15" y="34" class="pin-label" fill="#e67e22">3.3V (OUT)</text>
                     <circle cx="0" cy="70" r="4" class="pin"/> <text x="15" y="74" class="pin-label">GND</text>
-                    <circle cx="0" cy="110" r="4" class="pin"/> <text x="15" y="114" class="pin-label">IO 25 (SDA)</text>
-                    <circle cx="0" cy="150" r="4" class="pin"/> <text x="15" y="154" class="pin-label">IO 26 (SCL)</text>
+                    <circle cx="0" cy="110" r="4" class="pin"/> <text x="15" y="114" class="pin-label">IO 8 (SDA)</text>
+                    <circle cx="0" cy="150" r="4" class="pin"/> <text x="15" y="154" class="pin-label">IO 9 (SCL)</text>
                     <circle cx="0" cy="190" r="4" class="pin"/> <text x="15" y="194" class="pin-label">IO 5 (NFC RST)</text>
-                    <circle cx="0" cy="270" r="4" class="pin"/> <text x="15" y="274" class="pin-label">IO 23 (MOSI)</text>
-                    <circle cx="0" cy="310" r="4" class="pin"/> <text x="15" y="314" class="pin-label">IO 19 (MISO)</text>
+                    <circle cx="0" cy="270" r="4" class="pin"/> <text x="15" y="274" class="pin-label">IO 11 (MOSI)</text>
+                    <circle cx="0" cy="310" r="4" class="pin"/> <text x="15" y="314" class="pin-label">IO 12 (MISO)</text>
                     <circle cx="0" cy="350" r="4" class="pin"/> <text x="15" y="354" class="pin-label">IO 18 (SCK)</text>
                     <circle cx="280" cy="30" r="4" class="pin"/> <text x="265" y="34" class="pin-label" text-anchor="end" fill="#e74c3c">VIN (IN)</text>
                     <circle cx="280" cy="70" r="4" class="pin"/> <text x="265" y="74" class="pin-label" text-anchor="end">GND</text>
-                    <circle cx="280" cy="110" r="4" class="pin"/> <text x="265" y="114" class="pin-label" text-anchor="end">IO 35 (JOY Y)</text>
-                    <circle cx="280" cy="150" r="4" class="pin"/> <text x="265" y="154" class="pin-label" text-anchor="end">IO 32 (JOY SW)</text>
+                    <circle cx="280" cy="110" r="4" class="pin"/> <text x="265" y="114" class="pin-label" text-anchor="end">IO 1 (JOY Y)</text>
+                    <circle cx="280" cy="150" r="4" class="pin"/> <text x="265" y="154" class="pin-label" text-anchor="end">IO 17 (JOY SW)</text>
                     <circle cx="280" cy="190" r="4" class="pin"/> <text x="265" y="194" class="pin-label" text-anchor="end">IO 4 (IR TX)</text>
                     <circle cx="280" cy="230" r="4" class="pin"/> <text x="265" y="234" class="pin-label" text-anchor="end">IO 14 (SLEEP)</text>
                     <circle cx="280" cy="270" r="4" class="pin"/> <text x="265" y="274" class="pin-label" text-anchor="end" fill="#e84393">IO 15 (SD CS)</text>
@@ -336,6 +329,20 @@
             </svg>
         </div>
 
+        <div class="legend" style="background:#fff3cd; border:2px solid #ffc107;">
+            <h3>⚠️ Qué estaba mal y qué se corrigió</h3>
+            <p style="margin-bottom:10px;">El esquemático original usaba números de GPIO típicos del <strong>ESP32 clásico</strong>, pero el chip indicado es un <strong>ESP32-S3</strong>, cuyo mapa de pines es distinto. Por eso las conexiones se veían "mal": varios pines señalados simplemente no existen o están ocupados internamente en el S3.</p>
+            <ul style="margin-left:20px; line-height:1.7;">
+                <li><strong>GPIO25 y GPIO26</strong> (I2C, usados para SDA/SCL): <strong>GPIO22 a GPIO25 no existen en el ESP32-S3</strong>, y GPIO26 está reservado para la memoria flash interna. → Reasignados a <strong>GPIO8 (SDA) y GPIO9 (SCL)</strong>.</li>
+                <li><strong>GPIO23</strong> (MOSI): tampoco existe en el ESP32-S3. → Reasignado a <strong>GPIO11</strong>.</li>
+                <li><strong>GPIO19</strong> (MISO): existe, pero es el pin <strong>USB D-</strong> nativo del ESP32-S3 (GPIO20 es D+); usarlo como MISO puede interferir con la programación/alimentación por USB. → Reasignado a <strong>GPIO12</strong>.</li>
+                <li><strong>GPIO32</strong> (botón del joystick): está en el rango GPIO26-32, reservado para la flash SPI interna en los módulos WROOM. → Reasignado a <strong>GPIO17</strong>.</li>
+                <li><strong>GPIO35</strong> (eje Y del joystick): en módulos con PSRAM Octal (muy comunes, p. ej. variantes N16R8/N8R8) el rango GPIO33-37 queda reservado internamente. Para evitar dudas → Reasignado a <strong>GPIO1</strong> (pin ADC libre).</li>
+            </ul>
+            <p style="margin-top:10px;">Los demás pines (GPIO4, 5, 13, 14, 15, 18, 21) sí son válidos en el ESP32-S3 y se dejaron igual. El recorrido de los cables (quién va a quién) ya era correcto; el problema era solo la numeración de pines.</p>
+            <p style="margin-top:10px; font-size:0.9em;"><strong>Nota:</strong> si en realidad tu placa es un ESP32 "clásico" (no S3), los números originales (25, 26, 23, 19, 32, 35) eran válidos — en ese caso bastaría con corregir la etiqueta del chip a "ESP32" en vez de reasignar pines. Verifica el modelo exacto de tu placa (suele venir impreso o en la página de compra) antes de soldar.</p>
+        </div>
+
         <div class="legend">
             <h3>📋 Tabla de Conexiones Detallada</h3>
             <div style="overflow-x: auto;">
@@ -364,9 +371,9 @@
     const componentData = {
         'comp-esp32': { title: 'ESP32-S3', details: [{ label: 'Voltaje', value: '3.3V lógica, VIN 5V' }] },
         'comp-oled': { title: 'OLED 0.96"', details: [{ label: 'Protocolo', value: 'I2C' }] },
-        'comp-sd': { title: 'MicroSD', details: [{ label: 'SPI', value: 'CS=15, MOSI=23, MISO=19, SCK=18' }] },
+        'comp-sd': { title: 'MicroSD', details: [{ label: 'SPI', value: 'CS=15, MOSI=11, MISO=12, SCK=18' }] },
         'comp-rfid': { title: 'PN532 NFC', details: [{ label: 'Modo', value: 'I2C' }, {label: 'IRQ', value: 'GPIO21'}] },
-        'comp-joystick': { title: 'Joystick', details: [{ label: 'Eje Y', value: 'GPIO35' }, { label: 'Botón', value: 'GPIO32' }] },
+        'comp-joystick': { title: 'Joystick', details: [{ label: 'Eje Y', value: 'GPIO1' }, { label: 'Botón', value: 'GPIO17' }] },
         'comp-ir': { title: 'Emisor IR', details: [{ label: 'Transistor', value: '2N2222 + R 1kΩ' }] },
         'comp-ir-rx': { title: 'Receptor IR RS003', details: [{ label: 'Salida DAT', value: 'GPIO13' }] },
         'comp-tp4056': { title: 'Cargador TP4056', details: [{ label: 'Batería', value: 'LiPo 3.7V' }] },
@@ -383,10 +390,10 @@
         { module: 'TP4056', mPin: 'OUT+ / OUT-', ePin: 'Boost IN+ / IN-', notes: 'Voltaje protegido (3.7V)' },
         { module: 'Boost', mPin: 'OUT+', ePin: 'Diodo (Ánodo)', notes: 'Elevado a 5V' },
         { module: 'Diodo', mPin: 'Cátodo', ePin: 'ESP32 VIN', notes: 'Protege USB' },
-        { module: 'OLED / PN532', mPin: 'SDA / SCL', ePin: 'GPIO 25 / 26', notes: 'Bus I2C' },
-        { module: 'MicroSD', mPin: 'SPI (MISO, MOSI, SCK, CS)', ePin: '19, 23, 18, 15', notes: 'Bus SPI' },
+        { module: 'OLED / PN532', mPin: 'SDA / SCL', ePin: 'GPIO 8 / 9', notes: 'Bus I2C' },
+        { module: 'MicroSD', mPin: 'SPI (MISO, MOSI, SCK, CS)', ePin: '12, 11, 18, 15', notes: 'Bus SPI' },
         { module: 'PN532', mPin: 'RST / IRQ', ePin: 'GPIO 5 / 21', notes: 'Control NFC' },
-        { module: 'Joystick', mPin: 'VRy / SW', ePin: 'GPIO 35 / 32', notes: 'Entradas de menú' },
+        { module: 'Joystick', mPin: 'VRy / SW', ePin: 'GPIO 1 / 17', notes: 'Entradas de menú' },
         { module: 'IR', mPin: 'TX (Transistor) / RX (DAT)', ePin: 'GPIO 4 / 13', notes: 'Infrarrojos' }
     ];
 
@@ -401,6 +408,17 @@
     let dragged = null, dragStart = null, elemStart = null;
     const compsPos = {}, wires = [];
 
+    // Busca a qué componente pertenece un punto (x,y), comparando contra el
+    // bounding box de cada módulo con un pequeño margen de tolerancia.
+    function findOwnerComponent(x, y) {
+        const PAD = 4;
+        for (const id in compsPos) {
+            const c = compsPos[id];
+            if (x >= c.x - PAD && x <= c.x + c.w + PAD && y >= c.y - PAD && y <= c.y + c.h + PAD) return id;
+        }
+        return null;
+    }
+
     function initDrag() {
         document.querySelectorAll('.component').forEach(comp => {
             let tx = 0, ty = 0;
@@ -411,13 +429,43 @@
         document.querySelectorAll('.wire').forEach(w => {
             const d = w.getAttribute('d');
             if (!d) return;
-            const points = d.split(/(?=[ML])/i).map(seg => {
+            // Un mismo <path> puede traer varios sub-trazos "M ... L ... L ..."
+            // (varias ramas de un mismo bus, p.ej. 3.3V o GND). Se parsean todos
+            // juntos y se recuerda en qué sub-trazo empieza y termina cada punto.
+            const rawPoints = d.split(/(?=[ML])/i).map(seg => {
                 const type = seg[0];
-                const coords = seg.slice(1).trim().split(/[\s,]+/);
+                const coords = seg.trim().slice(1).trim().split(/[\s,]+/);
                 if (coords.length < 2) return null;
-                return { type, x: parseFloat(coords[0]), y: parseFloat(coords[1]), ox: parseFloat(coords[0]), oy: parseFloat(coords[1]), bind: null };
+                return { type, x: parseFloat(coords[0]), y: parseFloat(coords[1]), ox: parseFloat(coords[0]), oy: parseFloat(coords[1]), bind: null, neighbor: null };
             }).filter(p => p);
-            if (points.length) wires.push({ el: w, points });
+            if (!rawPoints.length) return;
+
+            // Determina el rango [inicio,fin] del sub-trazo al que pertenece cada punto.
+            let subStart = 0;
+            const subRange = rawPoints.map((p, i) => {
+                if (p.type === 'M') subStart = i;
+                return subStart;
+            });
+            // El fin de cada sub-trazo es el índice justo antes del próximo "M" (o el último punto).
+            const subEndAt = {};
+            rawPoints.forEach((p, i) => {
+                const s = subRange[i];
+                subEndAt[s] = i; // se va sobreescribiendo hasta quedar con el último índice del sub-trazo
+            });
+
+            // Vincula cada punto a su módulo (si cae dentro de algún bounding box)
+            // y guarda cuál es su "vecino" dentro del mismo sub-trazo, para poder
+            // estirar el último tramo manteniendo el ángulo recto.
+            rawPoints.forEach((p, i) => {
+                const owner = findOwnerComponent(p.ox, p.oy);
+                if (!owner) return;
+                p.bind = owner;
+                const s = subRange[i], e = subEndAt[s];
+                if (i === s && i < e) p.neighbor = i + 1;        // es el primer punto del sub-trazo
+                else if (i === e && i > s) p.neighbor = i - 1;   // es el último punto del sub-trazo
+            });
+
+            wires.push({ el: w, points: rawPoints });
         });
     }
     setTimeout(initDrag, 100);
@@ -454,7 +502,21 @@
             wires.forEach(w => {
                 let changed = false;
                 w.points.forEach(p => {
-                    if (p.bind === dragged.id) { p.x = p.ox + totalX; p.y = p.oy + totalY; changed = true; }
+                    if (p.bind !== dragged.id) return;
+                    p.x = p.ox + totalX; p.y = p.oy + totalY;
+                    changed = true;
+                    // Ajusta el punto vecino para que el tramo que entra al pin
+                    // siga siendo horizontal o vertical (no quede en diagonal),
+                    // salvo que ese vecino sea en realidad el pin de OTRO
+                    // componente (cable corto directo pin-a-pin): ahí se deja
+                    // que se incline libremente, como en cualquier esquemático.
+                    if (p.neighbor != null) {
+                        const np = w.points[p.neighbor];
+                        if (!np.bind || np.bind === dragged.id) {
+                            if (Math.abs(p.ox - np.ox) < 0.5) np.x = np.ox + totalX;      // tramo vertical
+                            else if (Math.abs(p.oy - np.oy) < 0.5) np.y = np.oy + totalY; // tramo horizontal
+                        }
+                    }
                 });
                 if (changed) w.el.setAttribute('d', w.points.map(p => `${p.type} ${p.x} ${p.y}`).join(' '));
             });
